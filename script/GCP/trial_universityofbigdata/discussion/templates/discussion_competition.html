@@ -1,0 +1,108 @@
+{% extends "competitions_base.html" %}
+{% load i18n %}
+
+{%block main%}
+
+<!-----> 
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "コンペティションの議論一覧" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+
+<!--main field---> 
+<div class="column">
+    <div class="container">
+      <p>{% trans "コメント一覧" %}</p>
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td class="col-md-3">{% trans "タイトル" %}</td>
+                        <td class="col-md-2">{% trans "投稿者" %}</td>
+                        <td class="col-md-2">{% trans "所属チーム" %}</td>
+                        <td class="col-md-3">{% trans "投稿日時" %}</td>
+                        <td class="col-md-2">{% trans "返答件数" %}</td>
+                    </tr>
+                    {% for obj in obj_list %}
+                    <tr>
+                        <td>
+                            <a class="btn navbar-btn  mlm navbar-right" type="button"
+                            href="{% url 'Discussion:discussion_post' obj.obj_id %}" style="color:#ff4500;">
+                            {{obj.title_disc}}
+                            </a>
+                        </td>
+                        <td>{{obj.user_nickname}}</td>
+                        <td>{{obj.team_name}}</td>
+                        <td>{{obj.added_datetime_disc}}</td>
+                        <td>{{obj.post_count}} {% trans "件" %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table> 
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="column">
+      <div class="container">
+        <h4>{% trans "議題投稿フォーム" %}</h4><hr width="50%">
+        <div class="col-md-12">
+          <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <table class="table table-borderless">
+                  <tbody>
+                      <tr>
+                        <th class="col-md-3"></th>
+                        <th class="col-md-3">{% trans "投稿チーム" %}</th>
+                        <th class="col-md-3">{% trans "投稿者" %}</th>
+                        <td class="col-md-3">{% trans "投稿先" %}</td>
+                      </tr>
+                    <tr>
+                      <td></td>
+                      <td>{{user.selectedTeam.name}}</td>
+                      <td>{{user.nickname}}</td>
+                      <td>{{competition_title}}</td>
+                    </tr>
+                      <tr>
+                        <td>{% trans "タイトル" %}</td>
+                        <td colspan="3">
+                          <div class="input_box">
+                        <input type="text" name="title_disc" size=100% required id="id_title_disc">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>{% trans "内容" %}</td>
+                        <td colspan="3">
+                          <div class="input_box">
+                        <textarea name="comment_field_disc" cols=100% rows="10" required id="id_comment_field_disc"></textarea>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          {% if user.is_participant %}
+                              <input type="submit" value={% trans "投稿" %}>
+                          {% else %}
+                              <input type="submit" value={% trans "登録者のみ投稿可能" %} disabled="disabled" />
+                          {% endif %}
+                        </td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--main field end---> 
+{% endblock %}

@@ -1,0 +1,1619 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-21 17:28+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: accounts/admin.py:20
+msgid "Permissions"
+msgstr "操作権限"
+
+#: accounts/admin.py:22 accounts/admin.py:30
+msgid "Team"
+msgstr "チーム"
+
+#: accounts/admin.py:23
+msgid "Important dates"
+msgstr "Important dates"
+
+#: accounts/forms.py:23 accounts/forms.py:46 accounts/forms.py:70
+msgid "入力例：「bigdata001」。英字で入力してください。"
+msgstr "入力例：「bigdata001」。英字で入力してください。"
+
+#: accounts/forms.py:24 accounts/forms.py:47 accounts/forms.py:71
+msgid "gmail アドレス"
+msgstr "gmail アドレス"
+
+#: accounts/forms.py:25 accounts/forms.py:48
+#, fuzzy
+#| msgid ""
+#| "コンペティションで使用するニックネームを英数字で入力してください。ニック"
+#| "ネームは本サイト上で公開されます。<br>ニックネームは登録後に変更可能です。"
+msgid ""
+"コンペティションで使用するニックネームを入力してください。ニックネームは本サ"
+"イト上で公開されます。<br>英数字でお願いします。登録後に変更可能です。"
+msgstr ""
+"コンペティションで使用するニックネームを入力してください。ニックネームは本サ"
+"イト上で公開されます。<br>英数字でお願いします。登録後に変更可能です。"
+
+#: accounts/forms.py:26 accounts/forms.py:49
+msgid "所属など　入力例：「ビッグデータ大学」。公開はされません"
+msgstr "所属など　入力例：「ビッグデータ大学」。公開はされません"
+
+#: accounts/forms.py:27
+msgid "パスワード"
+msgstr "パスワード"
+
+#: accounts/forms.py:72
+msgid ""
+"コンペティションで使用するニックネームを英数字で入力してください。ニックネー"
+"ムは本サイト上で公開されます。<br>ニックネームは登録後に変更可能です。"
+msgstr ""
+"コンペティションで使用するニックネームを英数字で入力してください。ニックネー"
+"ムは本サイト上で公開されます。<br>ニックネームは登録後に変更可能です。"
+
+#: accounts/forms.py:73
+msgid "参加者権限"
+msgstr "参加者権限"
+
+#: accounts/forms.py:74
+msgid "有効/無効"
+msgstr "有効/無効"
+
+#: accounts/forms.py:91 accounts/forms.py:109 competitions/models.py:169
+msgid "チーム名"
+msgstr "チーム名"
+
+#: accounts/models.py:76 accounts/models.py:88
+msgid "is_staff=Trueである必要があります。"
+msgstr "is_staff=Trueである必要があります。"
+
+#: accounts/models.py:78 accounts/models.py:92
+msgid "is_participant=Trueである必要があります。"
+msgstr "is_participant=Trueである必要があります。"
+
+#: accounts/models.py:90
+msgid "is_superuser=Trueである必要があります。"
+msgstr "is_superuser=Trueである必要があります。"
+
+#: accounts/models.py:104 accounts/models.py:105
+msgid "チーム"
+msgstr "チーム"
+
+#: accounts/models.py:137 accounts/templates/TA/registration_users.html:30
+#: accounts/templates/TA/suspension_users.html:30
+msgid "username"
+msgstr "ユーザー名"
+
+#: accounts/models.py:142
+msgid "A user with that username already exists."
+msgstr "そのユーザー名は既に使われています。別の名前を指定してください。"
+
+#: accounts/models.py:146
+msgid "gmail address"
+msgstr "gmail address"
+
+#: accounts/models.py:151
+msgid "A user with that email already exists."
+msgstr "そのユーザー名は既に使われています。別の名前を指定してください。"
+
+#: accounts/models.py:155 accounts/templates/TA/registration_users.html:29
+#: accounts/templates/TA/suspension_users.html:29
+msgid "nickname"
+msgstr "ニックネーム"
+
+#: accounts/models.py:161
+msgid "A user with that nickname already exists."
+msgstr ""
+"そのニックネームは既に使われています。別のニックネームを指定してください。"
+
+#: accounts/models.py:166
+msgid "affiliation organization"
+msgstr "所属"
+
+#: accounts/models.py:177
+msgid "invitation code"
+msgstr "認証コード"
+
+#: accounts/models.py:180
+msgid "admin"
+msgstr "管理者"
+
+#: accounts/models.py:181
+msgid "staff"
+msgstr "スタッフ"
+
+#: accounts/models.py:182
+msgid "guest"
+msgstr "ゲスト"
+
+#: accounts/models.py:184
+msgid "participant"
+msgstr "参加者"
+
+#: accounts/models.py:185
+msgid "active"
+msgstr "活動中"
+
+#: accounts/models.py:188
+msgid "date joined"
+msgstr "登録日"
+
+#: accounts/models.py:196
+msgid "user"
+msgstr "ユーザー"
+
+#: accounts/models.py:197
+msgid "users"
+msgstr "ユーザー"
+
+#: accounts/templates/TA/registration_users.html:12
+msgid "TA管理画面:参加者登録"
+msgstr "TA管理画面:参加者登録"
+
+#: accounts/templates/TA/registration_users.html:22
+msgid "ユーザー管理フォーム"
+msgstr "ユーザー管理フォーム"
+
+#: accounts/templates/TA/registration_users.html:31
+#: accounts/templates/TA/suspension_users.html:31
+msgid "email"
+msgstr "e-mail"
+
+#: accounts/templates/TA/registration_users.html:32
+msgid "参加認証"
+msgstr "参加認証"
+
+#: accounts/templates/TA/registration_users.html:51
+#: accounts/templates/TA/suspension_users.html:51
+#: accounts/templates/team/certification_teams.html:77
+msgid "承認"
+msgstr "承認"
+
+#: accounts/templates/TA/suspension_users.html:12
+msgid "TA管理画面:アカウント管理"
+msgstr "TA管理画面:アカウント管理"
+
+#: accounts/templates/TA/suspension_users.html:22
+msgid "アカウント管理フォーム"
+msgstr "アカウント管理フォーム"
+
+#: accounts/templates/TA/suspension_users.html:32
+msgid "アカウント可否"
+msgstr "アカウント可否"
+
+#: accounts/templates/accounts/edit_profile.html:11 templates/main_nav.html:54
+#: templates/main_nav.html:83
+msgid "登録情報編集"
+msgstr "登録情報編集"
+
+#: accounts/templates/accounts/edit_profile.html:17
+msgid "登録情報の編集を行えます。"
+msgstr "登録情報の編集を行えます。"
+
+#: accounts/templates/accounts/edit_profile.html:25
+msgid "編集"
+msgstr "編集"
+
+#: accounts/templates/accounts/edit_profile.html:25
+#: accounts/templates/accounts/registration_profile_google.html:38
+msgid "変更なし"
+msgstr "変更なし"
+
+#: accounts/templates/accounts/login.html:7
+#: accounts/templates/accounts/login.html:12 templates/main_nav.html:87
+#: templates/participation_guide.html:25 templates/participation_guide.html:28
+msgid "ログイン"
+msgstr "ログイン"
+
+#: accounts/templates/accounts/registration_profile.html:12
+#: accounts/templates/accounts/registration_profile_google.html:50
+#: templates/login_required.html:26
+msgid "参加者登録"
+msgstr "参加者登録"
+
+#: accounts/templates/accounts/registration_profile.html:22
+#: accounts/templates/accounts/registration_profile_google.html:60
+msgid "必要事項を入力して参加者登録申請を行ってください。"
+msgstr "必要事項を入力して参加者登録申請を行ってください。"
+
+#: accounts/templates/accounts/registration_profile.html:23
+#: accounts/templates/accounts/registration_profile_google.html:61
+msgid "申請内容の確認後、登録が完了します。登録には数日掛かることがあります。"
+msgstr "申請内容の確認後、登録が完了します。登録には数日掛かることがあります。"
+
+#: accounts/templates/accounts/registration_profile.html:24
+#: accounts/templates/accounts/registration_profile_google.html:62
+msgid "ご了承ください。"
+msgstr "ご了承ください。"
+
+#: accounts/templates/accounts/registration_profile.html:35
+msgid ""
+"コンペティションに参加するためには、以下の利用規約に同意する必要があります。"
+"同意される場合には「同意する」のチェックボックスにチェックを入れてください。"
+"チェック後、Submitボタンをクリックして申請をしてください。"
+msgstr ""
+"コンペティションに参加するためには、以下の利用規約に同意する必要があります。"
+"同意される場合には「同意する」のチェックボックスにチェックを入れてください。"
+"チェック後、Submitボタンをクリックして申請をしてください。"
+
+#: accounts/templates/accounts/registration_profile.html:37
+#: accounts/templates/accounts/registration_profile_google.html:31
+#: accounts/templates/accounts/registration_profile_google.html:75
+msgid "利用規約"
+msgstr "利用規約"
+
+#: accounts/templates/accounts/registration_profile.html:40
+#: accounts/templates/accounts/registration_profile_google.html:33
+#: accounts/templates/accounts/registration_profile_google.html:78
+msgid ""
+"利用者情報（氏名・所属・Googleアカウント）は、本サイト運営組織がサイト運営の"
+"ために使用します。また、利用者が各コンペティションに参加した場合、利用者情報"
+"を当該コンペティションの主催者と共有します。利用者の許可無く、本サイト運営組"
+"織・コンペティション主催者以外の組織等に対して利用者情報を開示することはあり"
+"ません。"
+msgstr ""
+"利用者情報（氏名・所属・Googleアカウント）は、本サイト運営組織がサイト運営の"
+"ために使用します。また、利用者が各コンペティションに参加した場合、利用者情報"
+"を当該コンペティションの主催者と共有します。利用者の許可無く、本サイト運営組"
+"織・コンペティション主催者以外の組織等に対して利用者情報を開示することはあり"
+"ません。"
+
+#: accounts/templates/accounts/registration_profile.html:41
+#: accounts/templates/accounts/registration_profile_google.html:35
+#: accounts/templates/accounts/registration_profile_google.html:79
+msgid ""
+"利用者によってアップロードされたデータ（予測・モデル・分析結果等）や操作履歴"
+"等を、サービス向上・調査・学術研究等のために本サイト運営組織と当該コンペティ"
+"ション主催者が利用することがあります。"
+msgstr ""
+"利用者によってアップロードされたデータ（予測・モデル・分析結果等）や操作履歴"
+"等を、サービス向上・調査・学術研究等のために本サイト運営組織と当該コンペティ"
+"ション主催者が利用することがあります。"
+
+#: accounts/templates/accounts/registration_profile.html:43
+#: accounts/templates/accounts/registration_profile_google.html:81
+#: competitions/templates/competitions_data.html:40
+msgid "同意します"
+msgstr "同意します"
+
+#: accounts/templates/accounts/registration_profile.html:44
+#: accounts/templates/accounts/registration_profile_google.html:82
+#: accounts/templates/accounts/signup.html:7
+#: accounts/templates/accounts/signup.html:12
+msgid "登録"
+msgstr "登録"
+
+#: accounts/templates/accounts/registration_profile_google.html:13
+msgid "登録情報確認"
+msgstr "登録情報確認"
+
+#: accounts/templates/accounts/registration_profile_google.html:23
+msgid "登録情報の確認をどうぞ。"
+msgstr "登録情報の確認をどうぞ。"
+
+#: accounts/templates/accounts/registration_profile_google.html:38
+#: accounts/templates/team/registration_teams.html:54
+#: universityofbigdata/templates/TA/edit_config.html:22
+msgid "更新"
+msgstr "更新"
+
+#: accounts/templates/accounts/registration_profile_google.html:73
+msgid ""
+"コンペティションに参加するためには、以下の利用規約に同意する必要があります。"
+"同意される場合には「同意する」のチェックボックスにチェックを入れてください。"
+"チェック後、登録ボタンをクリックして申請をしてください。"
+msgstr ""
+"コンペティションに参加するためには、以下の利用規約に同意する必要があります。"
+"同意される場合には「同意する」のチェックボックスにチェックを入れてください。"
+"チェック後、登録ボタンをクリックして申請をしてください。"
+
+#: accounts/templates/team/certification_teams.html:12
+msgid "TA管理画面:非公開コンペティション参加管理"
+msgstr "TA管理画面:非公開コンペティション参加管理"
+
+#: accounts/templates/team/certification_teams.html:21
+msgid "非公開/参加制限コンペティション参加可否"
+msgstr "非公開/参加制限コンペティション参加可否"
+
+#: accounts/templates/team/certification_teams.html:29
+#: competitions/models.py:157 discussion/models.py:18
+msgid "コンペティション名"
+msgstr "コンペティション名"
+
+#: accounts/templates/team/certification_teams.html:37
+msgid "条件"
+msgstr "条件"
+
+#: accounts/templates/team/certification_teams.html:41
+#: competitions/templates/competitions_main.html:36
+#: universityofbigdata/views.py:95 universityofbigdata/views.py:121
+msgid "公　開"
+msgstr "公　開"
+
+#: accounts/templates/team/certification_teams.html:43
+#: competitions/templates/competitions_main.html:36
+#: universityofbigdata/views.py:97 universityofbigdata/views.py:123
+msgid "非公開"
+msgstr "非公開"
+
+#: accounts/templates/team/certification_teams.html:45
+msgid " / "
+msgstr " / "
+
+#: accounts/templates/team/certification_teams.html:47
+msgid "参加制限あり"
+msgstr "参加制限あり"
+
+#: accounts/templates/team/certification_teams.html:49
+msgid "参加制限なし"
+msgstr "参加制限なし"
+
+#: accounts/templates/team/certification_teams.html:66
+msgid "参加"
+msgstr "参加"
+
+#: accounts/templates/team/certification_teams.html:69
+msgid "不可"
+msgstr "不可"
+
+#: accounts/templates/team/make_teams.html:12
+#: accounts/templates/team/registration_teams.html:12
+msgid "TA管理画面:チーム管理"
+msgstr "TA管理画面:チーム管理"
+
+#: accounts/templates/team/make_teams.html:21
+msgid "チーム管理、チーム作成"
+msgstr "チーム管理、チーム作成"
+
+#: accounts/templates/team/make_teams.html:35
+#: accounts/templates/team/registration_teams.html:30
+msgid "name"
+msgstr "ユーザー名"
+
+#: accounts/templates/team/make_teams.html:36
+msgid "member"
+msgstr "メンバー"
+
+#: accounts/templates/team/registration_teams.html:22
+msgid "チーム管理、割付フォーム"
+msgstr "チーム管理、割付フォーム"
+
+#: accounts/templates/team/registration_teams.html:31
+msgid "現在チーム"
+msgstr "現在チーム"
+
+#: accounts/views.py:84 accounts/views.py:153 accounts/views.py:216
+#: accounts/views.py:223 accounts/views.py:286 accounts/views.py:347
+#: accounts/views.py:355 competitions/views.py:119 competitions/views.py:142
+#: competitions/views.py:294 discussion/views.py:44 discussion/views.py:120
+#: universityofbigdata/views.py:260 universityofbigdata/views.py:316
+#: universityofbigdata/views.py:347
+msgid "No MyModel matches the given query."
+msgstr "No MyModel matches the given query."
+
+#: competitions/forms.py:65 competitions/forms.py:122 competitions/models.py:46
+msgid "コンペティションのタイトル（日本語）"
+msgstr "コンペティションのタイトル（日本語）"
+
+#: competitions/forms.py:66 competitions/forms.py:123 competitions/models.py:49
+msgid "コンペティションのタイトル（英語）(optional)"
+msgstr "コンペティションのタイトル（英語）(optional)"
+
+#: competitions/forms.py:67 competitions/forms.py:124
+msgid "コンペティション主催者"
+msgstr "コンペティション開催"
+
+#: competitions/forms.py:68 competitions/forms.py:125 competitions/models.py:58
+msgid "コンペティションの概要（日本語）"
+msgstr "コンペティションの概要（日本語）"
+
+#: competitions/forms.py:69 competitions/forms.py:126 competitions/models.py:60
+msgid "コンペティションの概要（英語）(optional)"
+msgstr "コンペティションの概要（英語）(optional)"
+
+#: competitions/forms.py:70 competitions/forms.py:127 competitions/models.py:63
+msgid "コンペティションの説明（日本語）"
+msgstr "コンペティションの説明（日本語）"
+
+#: competitions/forms.py:71 competitions/forms.py:128 competitions/models.py:65
+msgid "コンペティションの説明（英語）(optional)"
+msgstr "コンペティションの説明（英語）(optional)"
+
+#: competitions/forms.py:72 competitions/forms.py:129 competitions/models.py:68
+msgid "問題の種類"
+msgstr "問題の種類"
+
+#: competitions/forms.py:73 competitions/forms.py:130 competitions/models.py:72
+msgid "評価指標"
+msgstr "評価指標"
+
+#: competitions/forms.py:74 competitions/forms.py:131 competitions/models.py:74
+msgid "リーダーボードの種類"
+msgstr "リーダーボードの種類"
+
+#: competitions/forms.py:75 competitions/forms.py:132 competitions/models.py:77
+msgid "フォーラムの使用"
+msgstr "フォーラムの使用"
+
+#: competitions/forms.py:76 competitions/forms.py:133 competitions/models.py:80
+msgid "コンペティション開始日"
+msgstr "コンペティション開始日"
+
+#: competitions/forms.py:77 competitions/forms.py:134 competitions/models.py:81
+msgid "コンペティション終了日"
+msgstr "コンペティション終了日"
+
+#: competitions/forms.py:78 competitions/forms.py:135 competitions/models.py:83
+msgid "公開設定"
+msgstr "公開設定"
+
+#: competitions/forms.py:79 competitions/forms.py:136 competitions/models.py:84
+msgid "参加者制限"
+msgstr "参加者制限"
+
+#: competitions/forms.py:80 competitions/forms.py:137 competitions/models.py:86
+msgid "１日の最大投稿回数"
+msgstr "１日の最大投稿回数"
+
+#: competitions/forms.py:81 competitions/forms.py:138 competitions/models.py:89
+msgid "中間評価に使うデータの割合"
+msgstr "中間評価に使うデータの割合"
+
+#: competitions/forms.py:82 competitions/forms.py:139 competitions/models.py:90
+msgid "予測用データファイル"
+msgstr "予測用データファイル"
+
+#: competitions/forms.py:83 competitions/forms.py:140 competitions/models.py:91
+msgid "正解データファイル"
+msgstr "正解データファイル"
+
+#: competitions/forms.py:84 competitions/forms.py:141 competitions/models.py:92
+msgid "ファイルの説明（日本語）"
+msgstr "ファイルの説明（日本語）"
+
+#: competitions/forms.py:85 competitions/forms.py:142 competitions/models.py:94
+msgid "ファイルの説明（英語）(optional)"
+msgstr "ファイルの説明（英語）(optional)"
+
+#: competitions/forms.py:200 competitions/test_forms.py:36
+msgid "拡張子はcsvのみです"
+msgstr "拡張子はcsvのみです"
+
+#: competitions/models.py:10
+msgid "平均絶対誤差"
+msgstr "平均絶対誤差"
+
+#: competitions/models.py:11
+msgid "二乗平均誤差"
+msgstr "二乗平均誤差"
+
+#: competitions/models.py:12
+msgid "正解率"
+msgstr "正解率"
+
+#: competitions/models.py:13
+msgid "適合率"
+msgstr "適合率"
+
+#: competitions/models.py:14
+msgid "再現率"
+msgstr "再現率"
+
+#: competitions/models.py:15
+msgid "f値"
+msgstr "f値"
+
+#: competitions/models.py:16
+msgid "二乗平均平方根誤差"
+msgstr "二乗平均平方根誤差"
+
+#: competitions/models.py:17
+msgid "Area under the ROC curve (AUC)"
+msgstr "Area under the ROC curve (AUC)"
+
+#: competitions/models.py:53
+msgid "主催者"
+msgstr "主催者"
+
+#: competitions/models.py:55
+msgid "主催者名(控え)"
+msgstr "主催者名(控え)"
+
+#: competitions/models.py:69
+msgid "回帰"
+msgstr "回帰"
+
+#: competitions/models.py:69
+msgid "分類"
+msgstr "分類"
+
+#: competitions/models.py:75
+msgid "標準"
+msgstr "標準"
+
+#: competitions/models.py:79
+msgid "コンペティション登録日"
+msgstr "コンペティション登録日"
+
+#: competitions/models.py:97
+msgid "状態"
+msgstr "状態"
+
+#: competitions/models.py:99 competitions/templates/competitions_list.html:93
+#: competitions/urls.py:32
+msgid "開催準備中"
+msgstr "開催準備中"
+
+#: competitions/models.py:100 competitions/templates/competitions_list.html:25
+#: competitions/urls.py:32
+msgid "開催中"
+msgstr "開催中"
+
+#: competitions/models.py:101 competitions/templates/competitions_list.html:160
+#: competitions/urls.py:32
+msgid "開催終了"
+msgstr "開催終了"
+
+#: competitions/models.py:104
+msgid "参加者数"
+msgstr "参加者数"
+
+#: competitions/models.py:105
+msgid "参加チーム数"
+msgstr "参加チーム数"
+
+#: competitions/models.py:106 competitions/models.py:107
+msgid "承認数"
+msgstr "承認数"
+
+#: competitions/models.py:110
+msgid "認証コード"
+msgstr "認証コード"
+
+#: competitions/models.py:115
+msgid "優勝チーム"
+msgstr "優勝チーム"
+
+#: competitions/models.py:118 competitions/models.py:119
+#: competitions/urls.py:43 competitions/urls.py:51 competitions/urls.py:55
+msgid "コンペティション"
+msgstr "コンペティション"
+
+#: competitions/models.py:158 discussion/models.py:19 discussion/models.py:50
+msgid "投稿日"
+msgstr "投稿日"
+
+#: competitions/models.py:161 discussion/models.py:20 discussion/models.py:26
+#: discussion/models.py:51 discussion/models.py:57
+#: discussion/templates/discussion_competition.html:62
+#: discussion/templates/discussion_post.html:99
+msgid "投稿チーム"
+msgstr "投稿チーム"
+
+#: competitions/models.py:164 discussion/models.py:21 discussion/models.py:52
+#: discussion/templates/discussion_competition.html:26
+#: discussion/templates/discussion_competition.html:63
+#: discussion/templates/discussion_post.html:26
+#: discussion/templates/discussion_post.html:65
+#: discussion/templates/discussion_post.html:100
+msgid "投稿者"
+msgstr "投稿者"
+
+#: competitions/models.py:166
+msgid "投稿データファイル"
+msgstr "投稿データファイル"
+
+#: competitions/models.py:167 discussion/models.py:24 discussion/models.py:55
+msgid "投稿者名"
+msgstr "投稿者名"
+
+#: competitions/models.py:168 discussion/models.py:25 discussion/models.py:56
+msgid "投稿者ID"
+msgstr "投稿者ID"
+
+#: competitions/models.py:170
+msgid "チームID"
+msgstr "チームID"
+
+#: competitions/models.py:171 competitions/templates/competitions_post.html:37
+msgid "この日の投稿回数"
+msgstr "この日の投稿回数"
+
+#: competitions/models.py:172
+msgid "チームの総投稿回数"
+msgstr "チームの総投稿回数"
+
+#: competitions/models.py:174 competitions/templates/competitions_main.html:52
+#: competitions/templates/competitions_ranking.html:26
+#: competitions/templates/competitions_ranking.html:60
+#: competitions/templates/competitions_ranking.html:102
+#: competitions/templates/competitions_ranking.html:147
+#: competitions/templates/competitions_ranking.html:177
+#: competitions/templates/competitions_ranking.html:226
+#: competitions/templates/competitions_ranking.html:272
+#: templates/participation_guide.html:60
+msgid "中間スコア"
+msgstr "中間スコア"
+
+#: competitions/models.py:176 competitions/templates/competitions_main.html:53
+#: competitions/templates/competitions_ranking.html:148
+#: competitions/templates/competitions_ranking.html:178
+#: competitions/templates/competitions_ranking.html:227
+#: competitions/templates/competitions_ranking.html:273
+#: templates/participation_guide.html:61
+msgid "最終スコア"
+msgstr "最終スコア"
+
+#: competitions/models.py:211 competitions/models.py:212
+msgid "コンペティション投稿データ"
+msgstr "コンペティション投稿データ"
+
+#: competitions/templates/competitions_base.html:12
+#: competitions/templates/competitions_base_image.html:19
+#: discussion/templates/discussion_base.html:12 templates/base.html:12
+#: templates/sub_base_limit.html:12
+msgid "ビッグデータ大学"
+msgstr "ビッグデータ大学"
+
+#: competitions/templates/competitions_base_footer.html:5
+#: templates/main_footer.html:5
+msgid "謝辞"
+msgstr "謝辞"
+
+#: competitions/templates/competitions_base_footer.html:7
+#: templates/main_footer.html:7
+msgid ""
+"本プロジェクトの一部は、戦略的創造研究推進事業 CREST 「人とAIの協働ヒューマン"
+"コンピュテーション基盤」の支援を受けて実施されています。"
+msgstr ""
+"本プロジェクトの一部は、戦略的創造研究推進事業 CREST 「人とAIの協働ヒューマン"
+"コンピュテーション基盤」の支援を受けて実施されています。"
+
+#: competitions/templates/competitions_base_image.html:20
+msgid ""
+"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
+"るための学びの場です。是非コンペティションに挑戦してみてください。"
+msgstr ""
+"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
+"るための学びの場です。是非コンペティションに挑戦してみてください。"
+
+#: competitions/templates/competitions_base_nav.html:8
+msgid "概要"
+msgstr "概要"
+
+#: competitions/templates/competitions_base_nav.html:12
+msgid "データ"
+msgstr "データ"
+
+#: competitions/templates/competitions_base_nav.html:15
+#: competitions/templates/competitions_post.html:45
+#: competitions/templates/competitions_post.html:53
+#: competitions/templates/competitions_post.html:55
+#: competitions/templates/competitions_post.html:59
+#: competitions/templates/competitions_post.html:61
+#: discussion/templates/discussion_competition.html:92
+#: discussion/templates/discussion_post.html:120
+msgid "投稿"
+msgstr "投稿"
+
+#: competitions/templates/competitions_base_nav.html:18
+msgid "ランキング"
+msgstr "ランキング"
+
+#: competitions/templates/competitions_base_nav.html:21
+msgid "議論"
+msgstr "議論"
+
+#: competitions/templates/competitions_base_nav.html:26
+msgid "他のコンペティション"
+msgstr "他のコンペティション"
+
+#: competitions/templates/competitions_create.html:11
+msgid "コンペティション開催"
+msgstr "コンペティション開催"
+
+#: competitions/templates/competitions_create.html:18
+msgid "コンペティションの作成を行えます。"
+msgstr "コンペティションの作成を行えます。"
+
+#: competitions/templates/competitions_create.html:102
+msgid "作成"
+msgstr "作成"
+
+#: competitions/templates/competitions_data.html:11
+#: competitions/templates/competitions_main.html:11
+#: competitions/templates/competitions_post.html:11
+#: competitions/templates/competitions_ranking.html:11
+msgid "コンペティションの情報"
+msgstr "コンペティションの情報"
+
+#: competitions/templates/competitions_data.html:21
+msgid "予測用データの説明"
+msgstr "予測用データの説明"
+
+#: competitions/templates/competitions_data.html:33
+msgid ""
+"データをダウンロードするためには、以下のデータ利用規約に同意する必要がありま"
+"す。"
+msgstr ""
+"データをダウンロードするためには、以下のデータ利用規約に同意する必要がありま"
+"す。"
+
+#: competitions/templates/competitions_data.html:34
+msgid ""
+"各項目に同意される場合には「同意します」のチェックボックスにチェックを入れて"
+"ください。"
+msgstr ""
+"各項目に同意される場合には「同意します」のチェックボックスにチェックを入れて"
+"ください。"
+
+#: competitions/templates/competitions_data.html:36
+msgid ""
+"予測用データは、コンペティションのためだけに、またコンペティション期間中のみ"
+"使用を許可します。"
+msgstr ""
+"予測用データは、コンペティションのためだけに、またコンペティション期間中のみ"
+"使用を許可します。"
+
+#: competitions/templates/competitions_data.html:37
+msgid "予測用データの複製・頒布は禁止します。"
+msgstr "予測用データの複製・頒布は禁止します。"
+
+#: competitions/templates/competitions_data.html:38
+msgid "コンペティション終了後は、予測用データは必ず削除してください。"
+msgstr "コンペティション終了後は、予測用データは必ず削除してください。"
+
+#: competitions/templates/competitions_list.html:11
+msgid "コンペティション開催情報"
+msgstr "コンペティション開催情報"
+
+#: competitions/templates/competitions_list.html:18
+msgid "コンペティション一覧。"
+msgstr "コンペティション一覧。"
+
+#: competitions/templates/competitions_list.html:44
+#: competitions/templates/competitions_list.html:112
+#: competitions/templates/competitions_list.html:179
+msgid "詳細非公開"
+msgstr "詳細非公開"
+
+#: competitions/templates/competitions_list.html:51
+#: competitions/templates/competitions_list.html:119
+#: competitions/templates/competitions_list.html:186
+msgid "公　開コンペ"
+msgstr "公　開コンペ"
+
+#: competitions/templates/competitions_list.html:53
+#: competitions/templates/competitions_list.html:121
+#: competitions/templates/competitions_list.html:188
+msgid "非公開コンペ"
+msgstr "非公開コンペ"
+
+#: competitions/templates/competitions_list.html:58
+#: competitions/templates/competitions_list.html:126
+#: competitions/templates/competitions_list.html:193
+#: competitions/templates/competitions_main.html:37
+#: universityofbigdata/views.py:99 universityofbigdata/views.py:125
+msgid "参加者制限あり"
+msgstr "参加者制限あり"
+
+#: competitions/templates/competitions_list.html:60
+#: competitions/templates/competitions_list.html:128
+#: competitions/templates/competitions_list.html:195
+#: competitions/templates/competitions_main.html:37
+#: universityofbigdata/views.py:101 universityofbigdata/views.py:127
+msgid "参加者制限なし"
+msgstr "参加者制限なし"
+
+#: competitions/templates/competitions_list.html:68
+#: competitions/templates/competitions_list.html:136
+#: competitions/templates/competitions_list.html:203
+msgid "状　態"
+msgstr "状　態"
+
+#: competitions/templates/competitions_list.html:71
+#: competitions/templates/competitions_list.html:139
+#: competitions/templates/competitions_list.html:206
+msgid "開始日"
+msgstr "開始日"
+
+#: competitions/templates/competitions_list.html:74
+#: competitions/templates/competitions_list.html:142
+#: competitions/templates/competitions_list.html:209
+msgid "終了日"
+msgstr "終了日"
+
+#: competitions/templates/competitions_list.html:77
+#: competitions/templates/competitions_list.html:145
+#: competitions/templates/competitions_list.html:212
+msgid "参加者"
+msgstr "参加者"
+
+#: competitions/templates/competitions_list.html:77
+#: competitions/templates/competitions_list.html:145
+#: competitions/templates/competitions_list.html:212 templates/top.html:50
+msgid "人"
+msgstr "人"
+
+#: competitions/templates/competitions_list.html:80
+#: competitions/templates/competitions_list.html:148
+#: competitions/templates/competitions_list.html:215
+msgid "提出数"
+msgstr "提出数"
+
+#: competitions/templates/competitions_list.html:80
+#: competitions/templates/competitions_list.html:148
+#: competitions/templates/competitions_list.html:215
+#: discussion/templates/discussion_competition.html:42
+#: discussion/templates/discussion_post.html:38 templates/top.html:53
+#: templates/top.html:56
+msgid "件"
+msgstr "件"
+
+#: competitions/templates/competitions_list.html:227
+msgid "登録認証後に利用できます。"
+msgstr "登録認証後に利用できます。"
+
+#: competitions/templates/competitions_main.html:20
+msgid "コンペティションの概要"
+msgstr "コンペティションの概要"
+
+#: competitions/templates/competitions_main.html:23
+msgid "コンペティションの説明"
+msgstr "コンペティションの説明"
+
+#: competitions/templates/competitions_main.html:26
+msgid "問題設定"
+msgstr "問題設定"
+
+#: competitions/templates/competitions_main.html:27
+msgid "問題の種類 : "
+msgstr "問題の種類 : "
+
+#: competitions/templates/competitions_main.html:28
+msgid "評価指標   : "
+msgstr "評価指標   : "
+
+#: competitions/templates/competitions_main.html:30
+msgid "開催期間"
+msgstr "開催期間"
+
+#: competitions/templates/competitions_main.html:31
+msgid "状態　     : "
+msgstr "状態　     : "
+
+#: competitions/templates/competitions_main.html:32
+msgid "開始日     : "
+msgstr "開始日     : "
+
+#: competitions/templates/competitions_main.html:33
+msgid "終了日     : "
+msgstr "終了日     : "
+
+#: competitions/templates/competitions_main.html:35
+msgid "参加条件"
+msgstr "参加条件"
+
+#: competitions/templates/competitions_main.html:36
+msgid "公開設定　 : "
+msgstr "公開設定　 : "
+
+#: competitions/templates/competitions_main.html:37
+msgid "参加者制限 : "
+msgstr "参加者制限 : "
+
+#: competitions/templates/competitions_main.html:39
+#: templates/participation_guide.html:41
+msgid "コンペティション参加方法"
+msgstr "コンペティション参加方法"
+
+#: competitions/templates/competitions_main.html:41
+#: templates/participation_guide.html:43
+msgid "まず各コンペティションのページから、"
+msgstr "まず各コンペティションのページから、"
+
+#: competitions/templates/competitions_main.html:41
+#: templates/participation_guide.html:43
+msgid "予測用データ"
+msgstr "予測用データ"
+
+#: competitions/templates/competitions_main.html:41
+#: templates/participation_guide.html:43
+msgid "をダウンロードしてください。"
+msgstr "をダウンロードしてください。"
+
+#: competitions/templates/competitions_main.html:42
+#: templates/participation_guide.html:44
+msgid "予測用データ中の"
+msgstr "予測用データ中の"
+
+#: competitions/templates/competitions_main.html:42
+#: templates/participation_guide.html:44
+msgid "訓練データ"
+msgstr "訓練データ"
+
+#: competitions/templates/competitions_main.html:42
+#: templates/participation_guide.html:44
+msgid "を用いて学習を行い、"
+msgstr "を用いて学習を行い、"
+
+#: competitions/templates/competitions_main.html:42
+#: templates/participation_guide.html:44
+msgid "テストデータ"
+msgstr "テストデータ"
+
+#: competitions/templates/competitions_main.html:42
+#: templates/participation_guide.html:44
+msgid "に対する予測結果を作成してください。"
+msgstr "に対する予測結果を作成してください。"
+
+#: competitions/templates/competitions_main.html:43
+#: templates/participation_guide.html:45
+msgid "各コンペティションのページで、"
+msgstr "各コンペティションのページで、"
+
+#: competitions/templates/competitions_main.html:43
+#: templates/participation_guide.html:45
+msgid "予測結果を提出"
+msgstr "予測結果を提出"
+
+#: competitions/templates/competitions_main.html:43
+#: templates/participation_guide.html:45
+msgid "してください。"
+msgstr "してください。"
+
+#: competitions/templates/competitions_main.html:44
+#: templates/participation_guide.html:46
+msgid ""
+"予測結果を提出すると、スコアが表示されます。スコアを参考にして、予測手法の改"
+"善に取り組んでください。"
+msgstr ""
+"予測結果を提出すると、スコアが表示されます。スコアを参考にして、予測手法の改"
+"善に取り組んでください。"
+
+#: competitions/templates/competitions_main.html:47
+#: templates/participation_guide.html:55
+msgid "コンペティションの基本ルール"
+msgstr "コンペティションの基本ルール"
+
+#: competitions/templates/competitions_main.html:49
+msgid ""
+"個別ページに明記されていない限りコンペティションは以下のルールに従って実施さ"
+"れるものとします。"
+msgstr ""
+"個別ページに明記されていない限り、コンペティションは以下のルールに従って実施"
+"されるものとします。"
+
+#: competitions/templates/competitions_main.html:51
+#: templates/participation_guide.html:59
+msgid "予測結果は"
+msgstr "予測結果は"
+
+#: competitions/templates/competitions_main.html:51
+msgid "1日"
+msgstr "1日"
+
+#: competitions/templates/competitions_main.html:51
+#: competitions/templates/competitions_post.html:28
+msgid "回"
+msgstr "回"
+
+#: competitions/templates/competitions_main.html:51
+msgid "まで提出することができます。"
+msgstr "まで提出することができます。"
+
+#: competitions/templates/competitions_main.html:52
+#: templates/participation_guide.html:60
+msgid "予測結果提出時に提示されるスコアは"
+msgstr "予測結果提出時に提示されるスコアは"
+
+#: competitions/templates/competitions_main.html:52
+#: templates/participation_guide.html:60
+msgid "です。中間スコアは、テストデータの一部を対象にして算出されます。"
+msgstr "です。中間スコアは、テストデータの一部を対象にして算出されます。"
+
+#: competitions/templates/competitions_main.html:53
+#: templates/participation_guide.html:61
+msgid "コンペティション終了時に"
+msgstr "コンペティション終了時に"
+
+#: competitions/templates/competitions_main.html:53
+#: templates/participation_guide.html:61
+msgid ""
+"が算出されます。最終スコアは、残りのテストデータを対象にして算出されます。"
+msgstr ""
+"が算出されます。最終スコアは、残りのテストデータを対象にして算出されます。"
+
+#: competitions/templates/competitions_main.html:54
+#: templates/participation_guide.html:62
+msgid "最終的な順位は、最後に提出したモデルの最終スコアによって決定されます。"
+msgstr "最終的な順位は、最後に提出したモデルの最終スコアによって決定されます。"
+
+#: competitions/templates/competitions_post.html:22
+msgid "予測結果の提出"
+msgstr "予測結果の提出"
+
+#: competitions/templates/competitions_post.html:23
+msgid ""
+"投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してください。"
+msgstr ""
+"投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してください。"
+
+#: competitions/templates/competitions_post.html:24
+msgid "データ数が異なる場合、投稿ができません。"
+msgstr "データ数が異なる場合、投稿ができません。"
+
+#: competitions/templates/competitions_post.html:28
+msgid "本日投稿回数"
+msgstr "本日投稿回数"
+
+#: competitions/templates/competitions_post.html:28
+msgid "最大投稿回数"
+msgstr "最大投稿回数"
+
+#: competitions/templates/competitions_post.html:55
+msgid "投稿回数超過"
+msgstr "投稿回数超過"
+
+#: competitions/templates/competitions_post.html:59
+msgid "開催期間前"
+msgstr "開催期間前"
+
+#: competitions/templates/competitions_post.html:61
+msgid "期間終了"
+msgstr "期間終了"
+
+#: competitions/templates/competitions_ranking.html:19
+#: competitions/templates/competitions_ranking.html:53
+msgid "チーム別ランキング"
+msgstr "チーム別ランキング"
+
+#: competitions/templates/competitions_ranking.html:24
+#: competitions/templates/competitions_ranking.html:58
+#: competitions/templates/competitions_ranking.html:145
+#: competitions/templates/competitions_ranking.html:270
+msgid "現在順位"
+msgstr "現在順位"
+
+#: competitions/templates/competitions_ranking.html:25
+#: competitions/templates/competitions_ranking.html:59
+#: competitions/templates/competitions_ranking.html:146
+#: competitions/templates/competitions_ranking.html:176
+#: competitions/templates/competitions_ranking.html:271
+msgid "提出チーム/提出者"
+msgstr "提出チーム/提出者"
+
+#: competitions/templates/competitions_ranking.html:27
+#: competitions/templates/competitions_ranking.html:61
+#: competitions/templates/competitions_ranking.html:103
+#: competitions/templates/competitions_ranking.html:149
+#: competitions/templates/competitions_ranking.html:179
+#: competitions/templates/competitions_ranking.html:228
+#: competitions/templates/competitions_ranking.html:274
+msgid "提出日時"
+msgstr "提出日時"
+
+#: competitions/templates/competitions_ranking.html:28
+#: competitions/templates/competitions_ranking.html:62
+#: competitions/templates/competitions_ranking.html:150
+#: competitions/templates/competitions_ranking.html:275
+msgid "提出数(本日/総提出数)"
+msgstr "提出数(本日/総提出数)"
+
+#: competitions/templates/competitions_ranking.html:41 competitions/urls.py:43
+msgid "開催準備中です。"
+msgstr "開催準備中です。"
+
+#: competitions/templates/competitions_ranking.html:42
+msgid "ランキングは、最新提出結果のスコアが表示されます。"
+msgstr "ランキングは、最新提出結果のスコアが表示されます。"
+
+#: competitions/templates/competitions_ranking.html:43
+#: competitions/templates/competitions_ranking.html:76
+#: competitions/templates/competitions_ranking.html:200
+msgid "中間スコアはテストデータの"
+msgstr "中間スコアはテストデータの"
+
+#: competitions/templates/competitions_ranking.html:43
+#: competitions/templates/competitions_ranking.html:44
+#: competitions/templates/competitions_ranking.html:76
+#: competitions/templates/competitions_ranking.html:77
+#: competitions/templates/competitions_ranking.html:200
+#: competitions/templates/competitions_ranking.html:201
+msgid "を使って算出されます。"
+msgstr "を使って算出されます。"
+
+#: competitions/templates/competitions_ranking.html:44
+#: competitions/templates/competitions_ranking.html:77
+#: competitions/templates/competitions_ranking.html:201
+msgid "最終スコアは残りの"
+msgstr "最終スコアは残りの"
+
+#: competitions/templates/competitions_ranking.html:45
+#: competitions/templates/competitions_ranking.html:78
+#: competitions/templates/competitions_ranking.html:202
+msgid "最終順位は最終スコアによって決定されます。"
+msgstr "最終順位は最終スコアによって決定されます。"
+
+#: competitions/templates/competitions_ranking.html:75
+msgid "ランキングには、最新提出モデルのスコアが表示されます。"
+msgstr "ランキングには、最新提出モデルのスコアが表示されます。"
+
+#: competitions/templates/competitions_ranking.html:88
+#: competitions/templates/competitions_ranking.html:213
+msgid "投稿履歴"
+msgstr "投稿履歴"
+
+#: competitions/templates/competitions_ranking.html:99
+#: competitions/templates/competitions_ranking.html:229
+msgid "提出数(当日/総提出数)"
+msgstr "提出数(当日/総提出数)"
+
+#: competitions/templates/competitions_ranking.html:100
+#: competitions/templates/competitions_ranking.html:224
+msgid "提出チーム"
+msgstr "提出チーム"
+
+#: competitions/templates/competitions_ranking.html:101
+#: competitions/templates/competitions_ranking.html:225
+msgid "提出者"
+msgstr "提出者"
+
+#: competitions/templates/competitions_ranking.html:132
+#: competitions/templates/competitions_ranking.html:257
+msgid "管理用情報"
+msgstr "管理用情報"
+
+#: competitions/templates/competitions_ranking.html:139
+#: competitions/templates/competitions_ranking.html:264
+msgid "管理者用投稿別ランキング"
+msgstr "管理者用投稿別ランキング"
+
+#: competitions/templates/competitions_ranking.html:144
+#: competitions/templates/competitions_ranking.html:174
+#: competitions/templates/competitions_ranking.html:269
+msgid "最終順位"
+msgstr "最終順位"
+
+#: competitions/templates/competitions_ranking.html:162
+#: competitions/templates/competitions_ranking.html:287
+msgid "管理用に追加した表示になっています。アドバイスなどに活用してください。"
+msgstr "管理用に追加した表示になっています。アドバイスなどに活用してください。"
+
+#: competitions/templates/competitions_ranking.html:169
+msgid "最終ランキング"
+msgstr "最終ランキング"
+
+#: competitions/templates/competitions_ranking.html:175
+msgid "中間順位"
+msgstr "中間順位"
+
+#: competitions/templates/competitions_ranking.html:180
+msgid "総提出数"
+msgstr "総提出数"
+
+#: competitions/templates/competitions_ranking.html:199
+msgid "開催終了しました。"
+msgstr "開催終了しました。"
+
+#: competitions/urls.py:51
+msgid "が終了しました。"
+msgstr "が終了しました。"
+
+#: competitions/urls.py:51
+msgid "優勝者チームは"
+msgstr "優勝者チームは"
+
+#: competitions/urls.py:51
+msgid "です。"
+msgstr "です。"
+
+#: competitions/urls.py:55
+msgid "が始まりました。"
+msgstr "が始まりました。"
+
+#: competitions/views.py:321
+#, fuzzy
+#| msgid "１日の最大投稿回数"
+msgid "一日の最大投稿回数を越えています。"
+msgstr "一日の最大投稿回数を越えています。"
+
+#: competitions/views.py:359
+msgid "投稿ファイルのデータ数が異なります。"
+msgstr "投稿ファイルのデータ数が異なります。"
+
+#: discussion/models.py:17
+msgid "題名"
+msgstr "題名"
+
+#: discussion/models.py:22 discussion/models.py:53 discussion/models.py:62
+msgid "コメント"
+msgstr "コメント"
+
+#: discussion/models.py:27 discussion/models.py:58
+msgid "投稿チームID"
+msgstr "投稿チームID"
+
+#: discussion/models.py:30
+msgid "DiscussionComment"
+msgstr "DiscussionComment"
+
+#: discussion/models.py:31
+msgid "議論コメント"
+msgstr "議論コメント"
+
+#: discussion/models.py:49
+msgid "議論板"
+msgstr "議論板"
+
+#: discussion/models.py:61
+msgid "Comment"
+msgstr "Comment"
+
+#: discussion/templates/discussion_competition.html:11
+msgid "コンペティションの議論一覧"
+msgstr "コンペティションの議論一覧"
+
+#: discussion/templates/discussion_competition.html:20
+msgid "コメント一覧"
+msgstr "コメント一覧"
+
+#: discussion/templates/discussion_competition.html:25
+#: discussion/templates/discussion_competition.html:73
+#: discussion/templates/discussion_post.html:25
+msgid "タイトル"
+msgstr "タイトル"
+
+#: discussion/templates/discussion_competition.html:27
+#: discussion/templates/discussion_post.html:27
+#: discussion/templates/discussion_post.html:66
+msgid "所属チーム"
+msgstr "所属チーム"
+
+#: discussion/templates/discussion_competition.html:28
+#: discussion/templates/discussion_post.html:28
+#: discussion/templates/discussion_post.html:67
+msgid "投稿日時"
+msgstr "投稿日時"
+
+#: discussion/templates/discussion_competition.html:29
+#: discussion/templates/discussion_post.html:29
+msgid "返答件数"
+msgstr "返答件数"
+
+#: discussion/templates/discussion_competition.html:54
+msgid "議題投稿フォーム"
+msgstr "議題投稿フォーム"
+
+#: discussion/templates/discussion_competition.html:64
+#: discussion/templates/discussion_post.html:101
+msgid "投稿先"
+msgstr "投稿先"
+
+#: discussion/templates/discussion_competition.html:81
+#: discussion/templates/discussion_post.html:49
+msgid "内容"
+msgstr "内容"
+
+#: discussion/templates/discussion_competition.html:94
+#: discussion/templates/discussion_post.html:122
+msgid "登録者のみ投稿可能"
+msgstr "登録者のみ投稿可能"
+
+#: discussion/templates/discussion_post.html:91
+msgid "コメント投稿フォーム"
+msgstr "コメント投稿フォーム"
+
+#: templates/403.html:9 templates/404.html:10 templates/500.html:9
+msgid "トップページに戻る"
+msgstr "トップページに戻る"
+
+#: templates/login_required.html:13
+msgid "ようこそ、 "
+msgstr "ようこそ、"
+
+#: templates/login_required.html:13
+msgid "さん"
+msgstr "さん"
+
+#: templates/login_required.html:16
+msgid "参加登録中、まだ承認されていません。"
+msgstr "参加登録中、まだ承認されていません。"
+
+#: templates/login_required.html:16
+msgid "認証コードをお持ちの場合は下記フォームへ入力してください。"
+msgstr "認証コードをお持ちの場合は下記フォームへ入力してください。"
+
+#: templates/login_required.html:20
+msgid "認証"
+msgstr "認証"
+
+#: templates/login_required.html:21 templates/main_nav.html:77
+#: templates/main_nav.html:84
+msgid "ログアウト"
+msgstr "ログアウト"
+
+#: templates/login_required.html:26
+msgid "参加登録されていません。コンペティション参加には、まず"
+msgstr "参加登録されていません。コンペティション参加には、まず"
+
+#: templates/login_required.html:26
+msgid "を行ってください。"
+msgstr "を行ってください。"
+
+#: templates/login_required.html:40
+msgid "ログイン失敗"
+msgstr "ログイン失敗"
+
+#: templates/main_nav.html:21 templates/sub_nav_limit.html:21
+msgid "コンペ一覧"
+msgstr "コンペ一覧"
+
+#: templates/main_nav.html:26 templates/participation_guide.html:11
+#: templates/sub_nav_limit.html:26
+msgid "参加案内"
+msgstr "参加案内"
+
+#: templates/main_nav.html:35
+msgid "Sign in with Google Account"
+msgstr "Sign in with Google Account"
+
+#: templates/main_nav.html:53
+msgid " さんの設定"
+msgstr " さんの設定"
+
+#: templates/main_nav.html:55
+msgid "コンペティションリスト"
+msgstr "コンペティションリスト"
+
+#: templates/main_nav.html:57
+msgid "ログ"
+msgstr "ログ"
+
+#: templates/main_nav.html:58
+msgid "ログリスト"
+msgstr "ログリスト"
+
+#: templates/main_nav.html:59
+msgid "管理ログリスト"
+msgstr "管理ログリスト"
+
+#: templates/main_nav.html:62
+msgid "管理ツール"
+msgstr "管理ツール"
+
+#: templates/main_nav.html:63
+msgid "登録者管理"
+msgstr "登録者管理"
+
+#: templates/main_nav.html:64
+msgid "チーム管理"
+msgstr "チーム管理"
+
+#: templates/main_nav.html:65
+msgid "コンペティション管理"
+msgstr "コンペティション管理"
+
+#: templates/main_nav.html:68
+msgid "TA用ツール"
+msgstr "TA用ツール"
+
+#: templates/main_nav.html:69
+#: universityofbigdata/templates/TA/edit_config.html:9
+msgid "全体設定"
+msgstr "全体設定"
+
+#: templates/main_nav.html:70
+msgid "登録者承認ページ"
+msgstr "登録者承認ページ"
+
+#: templates/main_nav.html:71
+msgid "アカウント管理ページ"
+msgstr "アカウント管理ページ"
+
+#: templates/main_nav.html:72
+msgid "チーム作成ページ"
+msgstr "チーム作成ページ"
+
+#: templates/main_nav.html:73
+msgid "チーム割付けページ"
+msgstr "チーム割付けページ"
+
+#: templates/main_nav.html:74
+msgid "コンペティション作成ページ"
+msgstr "コンペティション作成ページ"
+
+#: templates/main_nav.html:75
+msgid "コンペティション参加者登録ページ"
+msgstr "コンペティション参加者登録ページ"
+
+#: templates/main_nav.html:116 templates/sub_nav_limit.html:56
+msgid "言語選択"
+msgstr "言語選択"
+
+#: templates/main_nav.html:123 templates/sub_nav_limit.html:63
+msgid "<選択中>"
+msgstr "<選択中>"
+
+#: templates/not_implemented.html:5
+msgid "実装されていません"
+msgstr "実装されていません"
+
+#: templates/participation_guide.html:20
+msgid "ユーザ登録方法"
+msgstr "ユーザ登録方法"
+
+#: templates/participation_guide.html:22
+msgid ""
+"コンペティション参加にはGoogleアカウントと、本サイトへの登録が必要です。"
+msgstr ""
+"コンペティション参加にはGoogleアカウントと、本サイトへの登録が必要です。"
+
+#: templates/participation_guide.html:23
+msgid "すでにGoogleアカウントをお持ちの方は"
+msgstr "すでにGoogleアカウントをお持ちの方は"
+
+#: templates/participation_guide.html:31
+msgid "して、登録に進んでください。"
+msgstr "して、登録に進んでください。"
+
+#: templates/participation_guide.html:57
+msgid ""
+"個別ページに明記されていない限り、コンペティションは以下のルールに従って実施"
+"されるものとします。"
+msgstr ""
+"個別ページに明記されていない限り、コンペティションは以下のルールに従って実施"
+"されるものとします。"
+
+#: templates/participation_guide.html:59
+msgid "1日既定の回数"
+msgstr "1日既定の回数"
+
+#: templates/participation_guide.html:59
+msgid ""
+"まで提出することができます。(回数はコンペティション概要で説明されます。)"
+msgstr ""
+"まで提出することができます。(回数はコンペティション概要で説明されます。)"
+
+#: templates/top.html:21
+msgid "ビッグデータ大学へようこそ"
+msgstr "ビッグデータ大学へようこそ"
+
+#: templates/top.html:22
+msgid ""
+"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
+"るための学びの場です。"
+msgstr ""
+"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
+"るための学びの場です。"
+
+#: templates/top.html:22
+msgid "是非コンペティションに挑戦してみてください。"
+msgstr "是非コンペティションに挑戦してみてください。"
+
+#: templates/top.html:25
+msgid "参加方法を確認する"
+msgstr "参加方法を確認する"
+
+#: templates/top.html:28
+msgid "参加登録済み"
+msgstr "参加登録済み"
+
+#: templates/top.html:31
+msgid "登録コード入力"
+msgstr "登録コード入力"
+
+#: templates/top.html:33
+msgid "ログインする"
+msgstr "ログインする"
+
+#: templates/top.html:39
+msgid ""
+"また、本サービスは講義等におけるデータ解析演習のプラットフォームとしてもご利"
+"用いただけます。"
+msgstr ""
+"また、本サービスは講義等におけるデータ解析演習のプラットフォームとしてもご利"
+"用いただけます。 "
+
+#: templates/top.html:39
+msgid "コンペティション開催をご希望の方はご連絡ください。"
+msgstr "コンペティション開催をご希望の方はご連絡ください。"
+
+#: templates/top.html:49
+msgid "登録者数"
+msgstr "登録者数"
+
+#: templates/top.html:52
+msgid "開催済み公開コンペ数"
+msgstr "開催済み公開コンペ数"
+
+#: templates/top.html:55
+msgid "開催済み非公開コンペ数"
+msgstr "開催済み非公開コンペ数"
+
+#: templates/top.html:65
+msgid " 新着情報"
+msgstr " 新着情報"
+
+#: templates/top.html:84
+msgid " 開催中のコンペティション"
+msgstr " 開催中のコンペティション"
+
+#: templates/top.html:87
+msgid "現在開催中のコンペティションはありません"
+msgstr "現在開催中のコンペティションはありません"
+
+#: templates/top.html:93 templates/top.html:128
+msgid "コンペティション情報"
+msgstr "コンペティション情報"
+
+#: templates/top.html:96 templates/top.html:131
+msgid "期限"
+msgstr "期限"
+
+#: templates/top.html:119
+msgid " これから開催されるコンペティション"
+msgstr " これから開催されるコンペティション"
+
+#: templates/top.html:122
+msgid "現在開催予定のコンペティションはありません"
+msgstr "現在開催予定のコンペティションはありません"
+
+#: trial_universityofbigdata/settings.py:147
+msgid "日本語"
+msgstr "日本語"
+
+#: trial_universityofbigdata/settings.py:148
+msgid "英語"
+msgstr "英語"
+
+#: universityofbigdata/forms.py:24
+msgid "設定"
+msgstr "設定"
+
+#: universityofbigdata/forms.py:25
+msgid "参加認証コード"
+msgstr "参加認証コード"
+
+#: universityofbigdata/models.py:17 universityofbigdata/models.py:18
+msgid "config"
+msgstr "config"
+
+#: universityofbigdata/models.py:26 universityofbigdata/models.py:27
+msgid "log_box"
+msgstr "log_box"
+
+#: universityofbigdata/models.py:44 universityofbigdata/models.py:45
+msgid "management_log_box"
+msgstr "management_log_box"
+
+#: universityofbigdata/models.py:52
+msgid "management_log"
+msgstr "management_log"
+
+#: universityofbigdata/templates/TA/edit_config.html:15
+msgid "全体の設定の編集を行えます。"
+msgstr "全体の設定の編集を行えます。"
+
+#: universityofbigdata/templates/TA/view_log.html:10
+msgid "ユーザーログ一覧"
+msgstr "ユーザーログ一覧"
+
+#: universityofbigdata/templates/TA/view_management_log.html:10
+msgid "管理ログ一覧"
+msgstr "管理ログ一覧"

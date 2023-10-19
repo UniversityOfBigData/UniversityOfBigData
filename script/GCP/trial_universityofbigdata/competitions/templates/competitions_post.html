@@ -1,0 +1,70 @@
+{% extends "competitions_base.html" %}
+{% load i18n %}
+
+{%block main%}
+
+<!--main field---> 
+<div class="container">
+    <div class="column_top" style="background-color:#143174;">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+              <h5> {% trans "コンペティションの情報" %}</h5>
+            </span>
+        </div> 
+    </div>
+</div>
+
+<!--main field end---> 
+<div class="container">
+  <div class="column">
+    <div class="container">
+      <div class="col-md-12 text-left"> 
+            <h5>{% trans "予測結果の提出" %}</h5>
+            <h6>{% trans "投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してください。" %}</h6>
+            <h6>{% trans "データ数が異なる場合、投稿ができません。" %}</h6>  
+            <br>
+      </div>
+      <hr>
+      {% trans "本日投稿回数" %}{{n_sub_daily}}{% trans "回" %} /{% trans "最大投稿回数" %}{{Competition_data.n_max_submissions_per_day}}{% trans "回" %}
+      <hr>
+
+      <div class="col-md-12">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table table-borderless">
+                <tbody>
+                    <tr><td class="col-md-3"></th><td class="col-md-3"></td><td class="col-md-3"></td></tr>
+		    <tr><th>{% trans "この日の投稿回数" %}</th><td>{{n_sub_daily}}</td><td></td></tr>
+                    <tr><th>{{form.post_key.label}}</th><td>{{form.post_key}}</td><td></td></tr>
+                </tbody>
+            </table>
+            <br><br>
+
+            {% if Competition_data.status == 'active' %}
+              {% if n_sub_daily < Competition_data.n_max_submissions_per_day %}
+                <input type="submit" value={% trans "投稿" %}>
+              {% else %}
+                {% if post_error or form.errors %}
+                  {% if post_error  %}
+                    {{post_error}}<br>
+                  {% elif form.errors %}
+                    {{ form.errors }}
+                  {% endif %}
+                  <input type="submit" value={% trans "投稿" %}>
+                {% else %}
+                  <input type="submit" value={% trans "投稿" %} disabled="disabled">{% trans "投稿回数超過" %}
+                {% endif %}
+              {% endif %}
+            {% elif Competition_data.status == 'coming' %}
+              <input type="submit" value={% trans "投稿" %} disabled="disabled"> {% trans "開催期間前" %}
+            {% else %}
+              <input type="submit" value={% trans "投稿" %} disabled="disabled"> {% trans "期間終了" %}
+            {% endif %}
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br>
+{% endblock %}

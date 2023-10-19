@@ -1,0 +1,29 @@
+default:
+  before_script:
+    - docker info
+
+build_image:
+  stage: build
+  script:
+    - docker compose build
+
+test:
+  stage: test
+  script:
+    - docker run --entrypoint=''
+      -e DJANGO_SECRET_KEY='django-insecure-test-secret-key' 
+      -e SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='google-oauth2-test-key' 
+      -e SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='google-oauth2-test-secret'
+      universityofbigdata/universityofbigdata:latest python manage.py test
+
+deploy:
+  stage: deploy
+  script:
+    - docker compose down
+    - echo "DJANGO_SECRET_KEY='django-insecure-test-secret-key'" > .env
+    - rm -f ./data/db.sqlite3
+    - DJANGO_SUPERUSER_PASSWORD=admin DJANGO_SUPERUSER_USERNAME=admin DJANGO_SUPERUSER_EMAIL=admin@example.com
+      sh ./initialize_noinput.sh
+    - PORT=8000 docker-compose up -d
+  only:
+    - main

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+
+{% block main %}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "TA管理画面:チーム管理" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+
+
+<div class="column">
+    <div class="container">
+            <ul>
+                {% trans "チーム管理、割付フォーム" %}
+            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td>{% trans "name" %}</td>
+                                <td>{% trans "現在チーム" %}</td>
+                                {% for obj in team_box %}
+                                    <td>{{obj.name}}</td>
+                                {% endfor %}
+                            </tr>
+                            {% for obj in user_box %}
+                            <tr>
+                                <td>{{obj.nickname}}</td>
+                                <td>{{obj.selectedTeam}}</td>
+                                {% for obj_t in team_box %}
+                                    <td>
+                                        {{obj_t.name}}<br>
+                                        {% if obj_t.name == obj.selectedTeam.name  %}
+                                            <input type="radio" id={{obj.pk}} name={{obj.pk}} value={{ obj_t.pk }} checked>
+                                        {% else %}
+                                            <input type="radio" id={{obj.pk}} name={{obj.pk}} value={{ obj_t.pk }} >
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <input type="submit" value={% trans "更新" %}>
+                </div>
+            </form>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

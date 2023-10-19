@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{%block main%}
+
+{% if user.is_authenticated %}
+    <div class="column">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        {% if user.is_participant %}
+                            <h4>{% trans "ようこそ、 " %}{% trans user.username %} {% trans "さん" %}</h4>
+                        {% else %}
+                            {% if user.is_guest %}
+                                <h4>{% trans "参加登録中、まだ承認されていません。" %}<br>{% trans "認証コードをお持ちの場合は下記フォームへ入力してください。" %}<br>
+                                <form action="{% url 'login_required' %}" method="POST", autocomplete="off">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button class='btn btn-outline-success btn-block' type="submit">{% trans "認証" %}</button>
+                                    <a class="btn btn-outline-success btn-block" href="{% url 'logout' %}" role="button">{% trans "ログアウト" %}</a>
+                                </form>
+                                </h4>
+                                
+                            {% else %}
+                                <h4>{% trans "参加登録されていません。コンペティション参加には、まず" %}<a href="{% url 'signup' %}" style="color:#ff4500;">{% trans "参加者登録" %}</a>{% trans "を行ってください。" %}</h4>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+{% else %}
+    <div class="column">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="col-md-12">
+        <h1>{% trans "ログイン失敗" %}</h1>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
+
+{%block userLog%}
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br>
+{% endblock %}

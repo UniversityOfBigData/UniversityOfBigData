@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:1.24.0
+    restart: always
+    ports:
+      - "${PORT:-80}:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./uwsgi/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./data:/data
+    depends_on:
+      - django
+
+  django:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    environment:
+      - DJANGO_SECRET_KEY
+      - SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
+      - SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
+    image: universityofbigdata/universityofbigdata:latest
+    restart: always
+    expose:
+      - "8000"
+    volumes:
+      - ./data:/opt/universityofbigdata/data
+      - ./uwsgi/uwsgi.ini:/opt/universityofbigdata/uwsgi.ini

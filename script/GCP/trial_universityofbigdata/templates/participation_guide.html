@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{%block main%}
+
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "参加案内" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+
+<div class="column">
+    <div class="container">
+        <div class="col-md-12">
+            <h2>{% trans "ユーザ登録方法" %}</h2>
+            <ul>
+                <li>{% trans "コンペティション参加にはGoogleアカウントと、本サイトへの登録が必要です。" %}</li>
+                <li>{% trans "すでにGoogleアカウントをお持ちの方は" %}
+                    {% if user.is_authenticated %}
+                            {% trans "ログイン" %}
+                    {% else %}
+                        <a href="{% url 'social:begin' 'google-oauth2' %}" style="color:#ff4500;">
+                            {% trans "ログイン" %}
+                        </a>
+                    {% endif %}
+                    {% trans "して、登録に進んでください。" %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="column">
+    <div class="container">
+        <div class="col-md-12">
+            <h2>{% trans "コンペティション参加方法" %}</h2>
+            <ol>
+                <li>{% trans "まず各コンペティションのページから、" %}<strong>{% trans "予測用データ" %}</strong>{% trans "をダウンロードしてください。" %}</li>
+                <li>{% trans "予測用データ中の" %}<strong>{% trans "訓練データ" %}</strong>{% trans "を用いて学習を行い、" %}<strong>{% trans "テストデータ" %}</strong>{% trans "に対する予測結果を作成してください。" %}</li>
+                <li>{% trans "各コンペティションのページで、" %}<strong>{% trans "予測結果を提出" %}</strong>{% trans "してください。" %}</li>
+                <li>{% trans "予測結果を提出すると、スコアが表示されます。スコアを参考にして、予測手法の改善に取り組んでください。" %}</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="column_last">
+    <div class="container">
+        <div class="col-md-12">
+            <h2>{% trans "コンペティションの基本ルール" %}</h2>
+            <ul>
+                <li>{% trans "個別ページに明記されていない限り、コンペティションは以下のルールに従って実施されるものとします。" %}
+                    <ul>
+                        <li>{% trans "予測結果は" %}<strong>{% trans "1日既定の回数" %}</strong>{% trans "まで提出することができます。(回数はコンペティション概要で説明されます。)" %}</li>
+                        <li>{% trans "予測結果提出時に提示されるスコアは" %}<strong>{% trans "中間スコア" %}</strong>{% trans "です。中間スコアは、テストデータの一部を対象にして算出されます。" %}</li>
+                        <li>{% trans "コンペティション終了時に" %}<strong>{% trans "最終スコア" %}</strong>{% trans "が算出されます。最終スコアは、残りのテストデータを対象にして算出されます。" %}</li>
+                        <li>{% trans "最終的な順位は、最後に提出したモデルの最終スコアによって決定されます。" %}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
+

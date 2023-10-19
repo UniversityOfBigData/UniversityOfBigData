@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{%block main%}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+                <h2>{% trans "全体設定" %}</h2>
+            </span>
+        </div>
+    </div>
+</div>
+<ul>
+    {% trans "全体の設定の編集を行えます。" %}<br>
+</ul>
+<div class="container">
+    <div class="col-md-12">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value={% trans "更新" %}>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

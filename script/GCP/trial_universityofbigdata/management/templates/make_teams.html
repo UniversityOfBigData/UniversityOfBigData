@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+
+{% block main %}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "TA管理画面:チーム管理" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+
+<div class="column">
+    <div class="container">
+            <ul>
+                {% trans "チーム管理、チーム作成" %}
+            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="table-responsive">
+                    <tr>
+                        {{form}}
+                    </tr>
+                </div>
+                <input type="submit" value="作成">
+            </form>                    
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>{% trans "name" %}</td>
+                        <td>{% trans "member" %}</td>
+                    </tr>
+                    {% for obj in team_box %}
+                    <tr>
+                        <td>{{obj.name}}</td>
+                        <td>{{obj.member_data}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{%block main%}
+
+<h2>{% trans "登録" %}</h2>
+
+<form method='post'>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit">{% trans "登録" %}</button>
+
+{% endblock %}

@@ -1,0 +1,292 @@
+{% extends "competitions_base.html" %}
+{% load i18n %}
+
+{%block main%}
+
+<!--main field---> 
+<div class="container">
+    <div class="column_top" style="background-color:#143174;">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+              <h5> {% trans "コンペティションの情報" %} : {{competition.title}}</h5>
+            </span>
+        </div> 
+    </div>
+</div>
+{% if status == 'coming' %}
+    <div class="column">
+        <div class="container">
+            <p>{% trans "チーム別ランキング" %}</p>
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-1">{% trans "現在順位" %}</td>
+                            <td class="col-md-1">{% trans "提出チーム/提出者" %}</td>
+                            <td class="col-md-2">{% trans "中間スコア" %}</td>
+                            <td class="col-md-2">{% trans "提出日時" %}</td>
+                            <td class="col-md-1">{% trans "提出数(本日/総提出数)" %}</td>
+                        </tr>
+                        <tr>
+                            <td> - </td>
+                            <td> -/- </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> -/- </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                {% trans "開催準備中です。" %}<br>
+                {% trans "ランキングは、最新提出結果のスコアが表示されます。" %}<br>
+                {% trans "中間スコアはテストデータの" %} {{competition.public_leaderboard_percentage}} % {% trans "を使って算出されます。" %}<br>
+                {% trans "最終スコアは残りの" %} {{competition.public_leaderboard_percentage}} % {% trans "を使って算出されます。" %}<br>
+                {% trans "最終順位は最終スコアによって決定されます。" %}
+            </p>
+        </div>
+    </div>
+{% elif status == 'active' %}
+    <!--main field end---> 
+    <div class="column">
+        <div class="container">
+        <p>{% trans "チーム別ランキング" %}</p>
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">{% trans "現在順位" %}</td>
+                        <td class="col-md-3">{% trans "提出チーム/提出者" %}</td>
+                        <td class="col-md-3">{% trans "中間スコア" %}</td>
+                        <td class="col-md-2">{% trans "提出日時" %}</td>
+                        <td class="col-md-2">{% trans "提出数(本日/総提出数)" %}</td>
+                    </tr>
+                    {% for scores in Post_score %}
+                    <tr>
+                        {% for score in scores %}
+                        <td>{{score}}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table> 
+        </div>
+        <p>
+            {% trans "ランキングには、最新提出モデルのスコアが表示されます。" %}<br>
+            {% trans "中間スコアはテストデータの" %} {{competition.public_leaderboard_percentage}} % {% trans "を使って算出されます。" %}<br>
+            {% trans "最終スコアは残りの" %} {{competition.public_leaderboard_percentage}} % {% trans "を使って算出されます。" %}<br>
+            {% trans "最終順位は最終スコアによって決定されます。" %}
+        </p>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="column_top" style="background-color:#247414;">
+            <div class="col-md-12 text-left">
+                <span style="color:#ffffff;">
+                  <h5> {% trans "投稿履歴" %} : {{user.selectedTeam.name}}</h5>
+                </span>
+            </div> 
+        </div>
+    </div>
+    <div class="column">
+        <div class="container">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">{% trans "提出数(当日/総提出数)" %}</td>
+                        <td class="col-md-2">{% trans "提出チーム" %}</td>
+                        <td class="col-md-3">{% trans "提出者" %}</td>
+                        <td class="col-md-3">{% trans "中間スコア" %}</td>
+                        <td class="col-md-2">{% trans "提出日時" %}</td>
+                    </tr>
+                    {% for key, values in post_for_team.items reversed %}
+                        {% if user.selectedTeam.id == key %}
+                            {% for value in values %}
+                            <tr>
+                                <td>{{value.5}} / {{value.6}}</td>
+                                <td>{{value.0}}</td>
+                                <td>{{value.1}}</td>
+                                <td>{{value.2}}</td>
+                                <td>{{value.4}}</td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+
+
+
+    <!--main field end---> 
+    {% if user.is_staff %}
+        <div class="container">
+            <div class="column_top" style="background-color:#143174;">
+                <div class="col-md-12 text-left">
+                    <span style="color:#ffffff;">
+                        <h5> {% trans "管理用情報" %} : {{competition.title}}</h5>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <p>{% trans "管理者用投稿別ランキング" %}</p>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-1">{% trans "最終順位" %}</td>
+                                <td class="col-md-1">{% trans "現在順位" %}</td>
+                                <td class="col-md-2">{% trans "提出チーム/提出者" %}</td>
+                                <td class="col-md-2">{% trans "中間スコア" %}</td>
+                                <td class="col-md-2">{% trans "最終スコア" %}</td>
+                                <td class="col-md-2">{% trans "提出日時" %}</td>
+                                <td class="col-md-2">{% trans "提出数(本日/総提出数)" %}</td>
+                            </tr>
+                            {% for scores in Post_management_score %}
+                            <tr>
+                                {% for score in scores %}
+                                <td>{{score}}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p>{% trans "管理用に追加した表示になっています。アドバイスなどに活用してください。" %}</p>
+            </div>
+        </div>
+    {% endif %}
+{% else %}
+    <div class="column">
+        <div class="container">
+            <p>{% trans "最終ランキング" %}</p>
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                                <td class="col-md-1">{% trans "最終順位" %}</td>
+                                <td class="col-md-1">{% trans "中間順位" %}</td>
+                                <td class="col-md-2">{% trans "提出チーム/提出者" %}</td>
+                                <td class="col-md-2">{% trans "中間スコア" %}</td>
+                                <td class="col-md-2">{% trans "最終スコア" %}</td>
+                                <td class="col-md-2">{% trans "提出日時" %}</td>
+                                <td class="col-md-2">{% trans "総提出数" %}</td>
+                        </tr>
+                        <tr>
+                            {% for scores in Post_fin_score %}
+                            <tr>
+                                <td>{{scores.0}}</td>
+                                <td>{{scores.1}}</td>
+                                <td>{{scores.2}}</td>
+                                <td>{{scores.3}}</td>
+                                <td>{{scores.4}}</td>
+                                <td>{{scores.5}}</td>
+                                <td>{{scores.6}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                {% trans "開催終了しました。" %}<br>
+                {% trans "中間スコアはテストデータの" %} {{competition.public_leaderboard_percentage}} % {% trans "を使って算出されます。" %}<br>
+                {% trans "最終スコアは残りの" %} {{competition.public_leaderboard_percentage}} % {% trans "を使って算出されます。" %}<br>
+                {% trans "最終順位は最終スコアによって決定されます。" %}
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="column_top" style="background-color:#247414;">
+            <div class="col-md-12 text-left">
+                <span style="color:#ffffff;">
+                  <h5> {% trans "投稿履歴" %} : {{user.selectedTeam.name}}</h5>
+                </span>
+            </div> 
+        </div>
+    </div>
+    <div class="column">
+        <div class="container">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">{% trans "提出チーム" %}</td>
+                        <td class="col-md-2">{% trans "提出者" %}</td>
+                        <td class="col-md-2">{% trans "中間スコア" %}</td>
+                        <td class="col-md-2">{% trans "最終スコア" %}</td>
+                        <td class="col-md-2">{% trans "提出日時" %}</td>
+                        <td class="col-md-2">{% trans "提出数(当日/総提出数)" %}</td>
+                    </tr>
+                    {% for key, values in post_for_team.items reversed %}
+                        {% if user.selectedTeam.id == key %}
+                            {% for value in values %}
+                            <tr>
+                                <td>{{value.0}}</td>
+                                <td>{{value.1}}</td>
+                                <td>{{value.2}}</td>
+                                <td>{{value.3}}</td>
+                                <td>{{value.4}}</td>
+                                <td>{{value.5}} / {{value.6}}</td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+
+    <!--main field end--->
+    {% if user.is_staff %}
+        <div class="container">
+            <div class="column_top" style="background-color:#143174;">
+                <div class="col-md-12 text-left">
+                    <span style="color:#ffffff;">
+                        <h5> {% trans "管理用情報" %} : {{competition.title}}</h5>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <p>{% trans "管理者用投稿別ランキング" %}</p>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-1">{% trans "最終順位" %}</td>
+                                <td class="col-md-1">{% trans "現在順位" %}</td>
+                                <td class="col-md-2">{% trans "提出チーム/提出者" %}</td>
+                                <td class="col-md-2">{% trans "中間スコア" %}</td>
+                                <td class="col-md-2">{% trans "最終スコア" %}</td>
+                                <td class="col-md-2">{% trans "提出日時" %}</td>
+                                <td class="col-md-2">{% trans "提出数(本日/総提出数)" %}</td>
+                            </tr>
+                            {% for scores in Post_management_fin_score %}
+                            <tr>
+                                {% for score in scores %}
+                                <td>{{score}}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p>{% trans "管理用に追加した表示になっています。アドバイスなどに活用してください。" %}</p>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}
+{% endblock %}

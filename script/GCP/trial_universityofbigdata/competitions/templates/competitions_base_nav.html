@@ -1,0 +1,35 @@
+{% load i18n %}
+<!-- メニュー-->
+<div class="column_top" style="background-color:#d4d8e0;">
+  <div class="container">
+        <nav class="nav navbar-nav navbar-expand navbar-light">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="btn navbar-btn  mlm navbar-right" type="button" href="{% url 'Competitions:competitions_main' competition.pk %}" style="color:#ff4500;">{% trans "概要" %}</a>
+            </li>
+            {%  if is_allow %}
+            <li class="nav-item">
+              <a class="btn navbar-btn  mlm navbar-right" type="button" href="{% url 'Competitions:competitions_data' competition.pk %}" style="color:#ff4500;">{% trans "データ" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn navbar-btn  mlm navbar-right" type="button" href="{% url 'Competitions:competitions_post' competition.pk %}" style="color:#ff4500;">{% trans "投稿" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn navbar-btn  mlm navbar-right" type="button" href="{% url 'Competitions:competitions_ranking' competition.pk %}" style="color:#ff4500;">{% trans "ランキング" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn navbar-btn  mlm navbar-right" type="button" href="{% url 'Discussion:discussion_competition' competition.pk %}" style="color:#ff4500;">{% trans "議論" %}</a>
+            </li>
+            {% endif %}
+            </li>
+            <li class="nav-item">
+              <a class="btn navbar-btn  mlm navbar-right" type="button" href="{% url 'Competitions:competitions_list' %}" style="color:#ff4500;">{% trans "他のコンペティション" %}</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            </li>
+          </ul>
+        </nav>
+  </div>
+</div>
