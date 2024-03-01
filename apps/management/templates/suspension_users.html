@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+
+{% block main %}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "ユーザーアカウント制御" %}</h2>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="column">
+    <div class="container">
+        <div class="col-md-12">
+            <ul>
+                {% trans "ユーザーアカウントを無効化または有効化します。" %}
+            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-2">{% trans "nickname" %}</td>
+                            <td class="col-md-2">{% trans "username" %}</td>
+                            <td class="col-md-2">{% trans "email" %}</td>
+                            <td class="col-md-2">{% trans "学籍番号" %}</td>
+                            <td class="col-md-2">{% trans "アカウント可否" %}</td>
+                        </tr>
+                        {% for obj in user_box %}
+                        <tr>
+                            <td>{{obj.nickname}}</td>
+                            <td>{{obj.username}}</td>
+                            <td>{{obj.email}}</td>
+                            <td>{{obj.student_number}}</td>
+                            <td>
+
+                                {% if obj.is_active  %}
+                                    <input type="radio" id={{obj.pk}} name={{obj.pk}} value="is_active" checked>
+                                    {% trans "有効" %}
+                                    <input type="radio" id={{obj.pk}} name={{obj.pk}} value="not_active">
+                                    {% trans "無効" %}
+                                {% else %}
+                                    <input type="radio" id={{obj.pk}} name={{obj.pk}} value="is_active">
+                                    {% trans "有効" %}
+                                    <input type="radio" id={{obj.pk}} name={{obj.pk}} value="not_active" checked>
+                                    {% trans "無効" %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <input type="submit" value={% trans "承認" %}>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

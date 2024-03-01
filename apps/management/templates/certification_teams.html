@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+
+{% block main %}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "非公開コンペティションの参加者設定" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+
+<div class="column">
+    <div class="container">
+        <ul>
+            {% trans "非公開/参加制限コンペティション参加可否" %}
+        </ul>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>{% trans "コンペティション名" %}</td>
+                            {% for obj in competition_box %}
+                            <td>
+                                {{obj.title}}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>{% trans "条件" %}</td>
+                            {% for obj in competition_box %}
+                            <td>
+                                {% if obj.public %}
+                                {% trans "公開"%}
+                                {% else %}
+                                {% trans "非公開"%}
+                                {% endif %}
+                                {% trans " / "%}
+                                {% if obj.invitation_only %}
+                                {% trans "参加制限あり"%}
+                                {% else %}
+                                {% trans "参加制限なし"%}
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        
+                        {% for team, comp_data in data.items %}
+                        <tr>
+                            <td>
+                                {{ team }}
+                            </td>
+                            {% for comp, name in comp_data.items %}
+                                <td>
+                                    {% if "participant" in name %}
+                                        <input type="radio" id={comp.pk}} name={{name}} value="is_participant" checked>
+                                        {% trans "参加" %}
+                                        <input type="radio" id={comp.pk}} name={{name}} value="not_participant">
+                                        {% trans "未参加" %}
+                                    {% else %}
+                                        <input type="radio" id={comp.pk}} name={{name}} value="is_participant">
+                                        {% trans "参加" %}
+                                        <input type="radio" id={comp.pk}} name={{name}} value="not_participant" checked>
+                                        {% trans "未参加" %}
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <input type="submit" value={% trans "適用" %}>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

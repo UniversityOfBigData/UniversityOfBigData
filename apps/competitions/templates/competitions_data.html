@@ -1,0 +1,54 @@
+{% extends "competitions_base.html" %}
+{% load i18n %}
+
+{%block main%}
+
+<!--main field---> 
+<div class="container">
+    <div class="column_top" style="background-color:#143174;">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+              <h5> {% trans "コンペティションの情報" %} : {{competition.title}}</h5>
+            </span>
+        </div> 
+    </div>
+</div>
+<!--main field end---> 
+
+<div class="container">
+  <div class="container">
+    <div class="column"> 
+      <h5> {% trans "予測用データの説明" %}</h5>
+      <h6>{{competition.file_description | linebreaksbr}}</h6>
+      <br><hr>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="container">
+    <div class="column">
+      <div class="col-md-12">
+        <form action="{{competition.blob_key.url}}">
+          <div class="alert alert-danger">
+              <p>{% trans "データをダウンロードするためには、以下のデータ利用規約に同意する必要があります。" %}
+                {% trans "各項目に同意される場合には「同意します」のチェックボックスにチェックを入れてください。" %}</p>
+                  <ul>
+                    <li>{% trans "予測用データは、コンペティションのためだけに、またコンペティション期間中のみ使用を許可します。" %}</li>
+                    <li>{% trans "予測用データの複製・頒布は禁止します。" %}</li>
+                    <li>{% trans "コンペティション終了後は、予測用データは必ず削除してください。" %}</li>
+                  </ul>
+              <p><input type="checkbox" name="checkbox" id="checkbox" onclick="this.form.nmSubmit.disabled=this.checked?false:true;"/>{% trans "同意します" %}</p>
+          </div>
+          {% if user.is_authenticated and competition.status == 'active' and is_allow %}
+            <input name="nmSubmit" type="submit" class="btn btn-danger btn-lg" value="Download: data.zip" disabled>
+          {% else %}
+            <input  type="submit" class="btn btn-danger btn-lg" value="disabled " disabled>
+          {% endif %}
+        </form>
+      </div>
+    </div> 
+  </div>
+</div>
+<!-- ----------------- end--->
+
+{% endblock %}

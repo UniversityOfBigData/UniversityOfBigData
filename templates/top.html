@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load tz %}
+
+{%block main%}
+
+<!----->
+<nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+<hr>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-4">
+        <center>
+        <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" fill="currentColor" class="bi bi-mortarboard" viewBox="0 0 16 16">
+          <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
+          <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"/>
+        </svg>
+        </center>
+      </div>
+      <div class="col-8">
+          <br>
+          <center><h2 style="color:whitesmoke">{% trans "ビッグデータ大学へようこそ"%}</h2></center>
+          <h6 style="color:whitesmoke">{% trans "ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着けるための学びの場です。" %} {% trans "是非コンペティションに挑戦してみてください。" %}</h6>
+          <br>
+          <div class="row justify-content-center">
+            <div class="col-6"><center><a href="{% url 'participation_guide' %}" class="btn btn-danger" type="button">{% trans "参加方法を確認する"%}</a></center></div>
+            <div class="col-6"><center>
+              {% if user.is_participant %}
+                <a href="#" class="btn btn-danger" type="button">{% trans "参加登録済み"%}</a>
+              {% else %}
+                  {% if user.is_authenticated %}
+                      <a href="{% url 'login_required' %}" class="btn btn-danger" type="button">{% trans "登録コード入力"%}</a>
+                  {% else %}
+                      <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger" type="button">{% trans "ログインする"%}</a>
+                  {% endif %}
+              {% endif %}
+            </center></div>
+          </div>
+          <br>
+          <h6 style="color:whitesmoke">{% trans "また、本サービスは講義等におけるデータ解析演習のプラットフォームとしてもご利用いただけます。" %}</h6>
+          <br><br><br>
+      </div>
+    </div>
+  </div>
+</nav>
+<!--登録者数-->
+<nav class="nav navbar-expand navbar-dark bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-4"><center><h5>{% trans "登録者数" %}</h5>
+        <h1>{{users_num}}<sub>{% trans "人" %}</sub></h1>
+      </center></div>
+      <div class="col-4"><center><h5>{% trans "開催済み公開コンペ数" %}</h5>
+        <right><h1>{{publicCompetition_num}}<sub>{% trans "件" %}</sub></h1></right>
+      </center></div>
+      <div class="col-4"><center><h5>{% trans "開催済み非公開コンペ数" %}</h5>
+        <right><h1>{{closedCompetition_num}}<sub>{% trans "件" %}</sub></h1></right>
+      </center></div>
+    </div>
+    <br>
+    <br>
+  </div>
+</nav>
+<!--新着情報 ログから自動で表示-->
+<div class="container">
+  <h4><i class="bi bi-clock-history"></i> {% trans "コンペ情報" %}</h4>
+  {% for log in manage_box reversed %}
+  <h6>{{log.time}}</h6>
+  {{log.message | linebreaksbr}}
+  {% endfor %}
+  {% if user.is_authenticated %}
+  <br>
+  <br>
+  <h4> {{user.nickname}} {% trans "の活動履歴" %} </h4>
+  {% for log in activity_logs %}
+  {{log.time|localtime}}: {{log.activity | linebreaksbr}}
+  <br>
+  {% endfor %}
+  {% endif %}
+  <br>
+  <br>
+  <h4> {% trans "インスタンス上の活動履歴" %} </h4>
+  {% for log in other_user_logs %}
+  {{log.time|localtime}}: {{log.activity | linebreaksbr}}
+  <br>
+  {% endfor %}
+  <br>
+  <br>
+</div>
+<hr>
+
+<div class="container">
+  <h4><i class="bi bi-easel"></i> {% trans " 開催中のコンペティション" %}</h4>
+  <br>
+  {% if CurrentCompetitions %}
+    {% trans "現在開催中のコンペティションはありません" %}
+  {% else %}
+    <table class="table table-bordered">
+      <thead>
+          <tr>
+              <th class="col-md-6">
+              {% trans "コンペティション情報" %}
+              </th>
+              <th class="col-md-4">
+              {% trans "期限" %}
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for rows in CurrentCompetitions_box reversed %}
+          <tr>
+            {% for row in rows %}
+              <th>
+                {% for r0 in row %}
+                  {{r0}}<br>
+                {% endfor %}
+              </th>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+<hr>
+
+<div class="container">
+  <h4><i class="bi bi-easel"></i> {% trans " これから開催されるコンペティション" %}</h4>
+  <br>
+  {% if ComingCompetitions %}
+      {% trans "現在開催予定のコンペティションはありません" %}
+  {% else %}
+    <table class="table table-bordered">
+      <thead>
+          <tr>
+              <th class="col-md-6">
+              {% trans "コンペティション情報" %}
+              </th>
+              <th class="col-md-4">
+              {% trans "期限" %}
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for rows in ComingCompetitions_box reversed %}
+          <tr>
+            {% for row in rows %}
+              <th>
+                {% for r0 in row %}
+                  {{r0}}<br>
+                {% endfor %}
+              </th>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+{% endblock %}
+
+{%block userLog%}
+{% endblock %}

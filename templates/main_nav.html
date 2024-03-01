@@ -1,0 +1,137 @@
+{% load i18n %}
+<!-- ナビげーションメニュー-->
+<div id="header">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-expand navbar-light mt-3 mb-4">
+      <div class="row">
+        <div class="col-sm-5">
+          <a class="navbar-brand" href="/">
+            {% if LANGUAGE_CODE == "ja" %}
+              <img class="img-responsive" src="/static/images/bigdata.png">
+            {% elif LANGUAGE_CODE == "en" %}
+              <img class="img-responsive" src="/static/images/bigdata_en.png">
+            {% endif %}
+          </a>
+        </div>
+        <div class="col-sm-7">
+            <nav class="navbar navbar-nav navbar-right bg-light">
+              <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated and user.is_participant %}
+                <li class="nav-item">
+                    <a class="btn navbar-btn  navbar-right" type="button" href="{% url 'Competitions:competitions_list' %}" style="color:#ff4500;">{% trans "コンペ一覧" %}</a>
+                </li>
+                {% else %}
+                {% endif %}
+                <li class="nav-item">
+                    <a class="btn navbar-btn  mlm navbar-right" type="button" href="{% url 'participation_guide' %}" style="color:#ff4500;">{% trans "参加案内" %}</a>
+                </li>
+              </ul>
+
+              {% if user.is_authenticated %}
+              {% else %}
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="btn btn-dark btn-sm" href="{% url 'social:begin' 'google-oauth2' %}"  type="button" >
+                      <font size="1">{% trans "Sign in with Google Account" %} </font>
+                    </a>
+                  </li>
+                </ul>
+              {% endif %}
+
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!--メニュー-->
+                    {% if user.is_authenticated %}
+                      {% if user.is_participant %}
+                          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                              <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <span class="bi bi-card-text"></span> <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+                                  <li class="dropdown-header" role="presentation">{% trans user.nickname %}{% trans " さんの設定" %}</li>
+                                  <li><a class="dropdown-item" href="{% url 'profileedit' %}">{% trans "プロフィール編集" %}</a></li>
+                                  <li><a class="dropdown-item" href="{% url 'Competitions:competitions_list' %}">{% trans "コンペティション一覧" %}</a></li>
+                                  {% if user.is_staff %}
+                                    <li class="dropdown-header" role="presentation">{% trans "管理ツール" %}</li>
+                                    <li><a class="dropdown-item" href="{% url 'admin:accounts_user_changelist' %}">{% trans "登録者管理" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'admin:accounts_teamtag_changelist' %}">{% trans "チーム管理" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'admin:competitions_competitionmodel_changelist' %}">{% trans "コンペティション管理" %}</a></li>
+                                    <li class="dropdown-header" role="presentation">{% trans "TA用ツール" %}</li>
+                                    <li><a class="dropdown-item" href="{% url 'log_viewer:log_file_view' %}?file=/logs/json/log.json">{% trans "ログ" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'edit_config' 1 %}">{% trans "参加認証コード設定" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'registration_users' %}">{% trans "参加承認" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'suspension_users' %}">{% trans "ユーザーアカウント制御" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'make_team' %}">{% trans "チーム作成" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'manage_teams' %}">{% trans "所属チーム設定" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'competitions_create' %}">{% trans "コンペティション作成" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'certification_teams' %}">{% trans "非公開コンペティションの参加者設定" %}</a></li>
+                                  {% endif %}
+                                  <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans "ログアウト" %}</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
+                      {% else %}
+                      <a href="{% url 'profileedit' %}" id="signup" class="btn btn-inverse navbar-btn btn-xs navbar-right" type="button">{% trans "登録情報編集" %}</a>
+                      <a href="{% url 'logout' %}" id="signup" class="btn btn-inverse navbar-btn btn-xs navbar-right" type="button">{% trans "ログアウト" %}</a>
+                      {% endif %}
+                    {% else %}
+                    <a href="{% url 'login' %}" id="signin" class="btn btn-inverse navbar-btn btn-xs mlm navbar-right" type="button">{% trans "ログイン" %}</a>
+                    {% endif %}
+                    <!--メニュー-->
+                </li>
+                <li class="nav-item">
+                    <!--言語選択-->
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                      <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="bi bi-translate"></span> <b class="caret"></b>
+                          </a>
+
+                          <form id="language-changer" action="{% url 'set_language' %}" method="post" style="display: none;">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ redirect_to }}" />
+                            <input name="language" type="hidden" value="" />
+                          </form>
+
+                          <script type="text/javascript">
+                              function postLanguageChanger(code)
+                              {
+                                  var form = document.getElementById('language-changer');
+                                  form.language.value = code;
+                                  form.submit();
+                              }
+                          </script>
+
+                          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><h6 class="dropdown-header">{% trans "言語選択" %}</h6></li>
+                              {% get_available_languages as LANGUAGES %}
+                              {% get_language_info_list for LANGUAGES as languages %}
+                              {% for language in languages %}
+                                  <li>
+                                      {% if language.code == LANGUAGE_CODE %}
+                                        <a class="dropdown-item"  href="#">
+                                          {{ language.name_local }}({{ language.code }}){% trans "<選択中>" %}
+                                        </a>
+                                      {% else %}
+                                          <a class="dropdown-item"  href="#" onclick="postLanguageChanger('{{ language.code }}'); return false;">
+                                              {{ language.name_local }}({{ language.code }})
+                                          </a>
+                                      {% endif %}
+                                  </li>
+                              {% endfor %}
+                          </ul>
+                        </li>
+                      </ul>
+                    </div><!--言語選択-->
+                </li>
+              </ul>
+            </nav>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

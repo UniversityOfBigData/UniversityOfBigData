@@ -1,0 +1,51 @@
+{% load i18n %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link rel="icon" href="{% static 'images/mortarboard.svg' %}">
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% trans "ビッグデータ大学" %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% block extraheader %}{% endblock %}
+    <style type="text/css">
+      tablearea{
+        width:200%;
+        height:30%;
+      }
+      input_box {
+        width:100%;
+        height:30px;
+        border:1px solid #FF1D00;
+        padding:20px 0px;
+      }
+      input_box input[type="text"] {
+        width:100%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% include "main_nav.html" %}
+    {% include "competitions_base_image.html" %}
+    {% block main %}{% endblock %}
+    {% block main2 %}{% endblock %}
+    {% block main3 %}{% endblock %}
+
+    {% if user.is_authenticated %}
+      {% block userLog %}{% endblock %}
+    {% endif %}
+
+    {% include "competitions_base_footer.html" %}
+
+  </body>
+</html>

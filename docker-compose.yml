@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:1.24.0
+    restart: always
+    ports:
+      - "${PORT:-80}:80"  # Let's EncryptによるTLS証明書を有効にする場合はコメントアウト
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./uwsgi/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./data:/data
+    depends_on:
+      - django
+
+  django:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    environment:
+      - DJANGO_SECRET_KEY
+      - SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
+      - SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
+      - DJANGO_SUPERUSER_USERNAME
+      - DJANGO_SUPERUSER_EMAIL
+      - DJANGO_SUPERUSER_PASSWORD
+      - DEBUG
+    image: "universityofbigdata/universityofbigdata:${VERSION:-20240229}"
+    restart: always
+    expose:
+      - "8000"
+    volumes:
+      - ./data:/opt/universityofbigdata/data
+      - ./uwsgi/uwsgi.ini:/opt/universityofbigdata/uwsgi.ini
+      - ./migrations/accounts:/opt/universityofbigdata/apps/accounts/migrations
+      - ./migrations/authentication:/opt/universityofbigdata/apps/authentication/migrations
+      - ./migrations/management:/opt/universityofbigdata/apps/management/migrations
+      - ./migrations/competitions:/opt/universityofbigdata/apps/competitions/migrations
+      - ./migrations/discussion:/opt/universityofbigdata/apps/discussion/migrations
+    depends_on:
+      - initializer
+
+  initializer:
+    image: bash:4.1.17
+    volumes:
+      - ./data:/data
+    command: mkdir -p /data/static /data/media /data/log/nginx /data/log/apps
+
+  # postgresqlを使用する場合
+#  db:
+#    image: postgres:16.2
+#    restart: always
+#    volumes:
+#      - ./db:/var/lib/postgresql/data
+#    environment:
+#      - POSTGRES_PASSWORD
+#      - POSTGRES_USER
+#      - POSTGRES_DB
+
+  # Let's EncryptによるTLS証明書を有効にする場合
+#  https-portal:
+#    image: steveltn/https-portal:1
+#    ports:
+#      - '80:80'
+#      - '443:443'
+#    links:
+#      - nginx
+#    restart: always
+#    environment:
+#      DOMAINS: '$DOMAIN -> http://nginx'
+#      STAGE: 'production' # Don't use production until staging works
+#      # FORCE_RENEW: 'true'
+#    volumes: 
+#      - https-portal-data:/var/lib/https-portal
+#
+#volumes:
+#  https-portal-data:

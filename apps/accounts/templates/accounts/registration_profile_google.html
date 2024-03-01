@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+
+{% block main %}
+{% if user.is_participant %}
+    <div class="column_top" style="background-color:#143174;">
+        <div class="container">
+            <div class="col-md-12 text-left">
+                <span style="color:#ffffff;">
+                    <h2>{% trans "登録情報確認" %}</h2>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="column">
+        <div class="container">
+            <div class="col-md-12">
+                <ul>
+                    {% trans "登録情報の確認をどうぞ。" %}
+                </ul>
+    
+                <form action="{% url 'signup_google' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <hr>
+                    <div class="col-md-12">
+                        <h5>{% trans "利用規約" %}</h5>
+                        <ul>
+                            <li>{% trans "利用者情報（氏名・所属・Googleアカウント）は、本サイト運営組織がサイト運営のために使用します。また、利用者が各コンペティションに参加した場合、利用者情報を当該コンペティションの主催者と共有します。利用者の許可無く、本サイト運営組織・コンペティション主催者以外の組織等に対して利用者情報を開示することはありません。" %}
+                            </li>
+                            <li>{% trans "利用者によってアップロードされたデータ（予測・モデル・分析結果等）や操作履歴等を、サービス向上・調査・学術研究等のために本サイト運営組織と当該コンペティション主催者が利用することがあります。" %}
+                            </li>
+                        </ul>
+                        <button name="Submit" class='btn btn-outline-success btn-block' type="submit">{% trans "更新" %}</button> <button name="Submit" class='btn btn-outline-success btn-block' type="submit">{% trans "変更なし" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+    <div class="column_top" style="background-color:#143174;">
+        <div class="container">
+            <div class="col-md-12 text-left">
+                <span style="color:#ffffff;">
+                <h2>{% trans "参加者登録" %}</h2>
+                </span>
+            </div> 
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="container">
+            <div class="col-md-12">
+                <ul>
+                    {% trans "必要事項を入力して参加者登録申請を行ってください。" %}<br>
+                    {% trans "申請内容の確認後、登録が完了します。登録には数日掛かることがあります。" %}<br>
+                    {% trans "ご了承ください。" %}
+                </ul>
+
+                <form action="{% url 'signup_google' %}" method="post" 
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                
+
+                <hr>
+                <div class="col-md-12">
+                        <h7>{% trans "コンペティションに参加するためには、以下の利用規約に同意する必要があります。同意される場合には「同意する」のチェックボックスにチェックを入れてください。チェック後、登録ボタンをクリックして申請をしてください。" %}</h7>
+
+                        <h5>{% trans "利用規約" %}</h5>
+
+                        <ul>
+                            <li>{% trans "利用者情報（氏名・所属・Googleアカウント）は、本サイト運営組織がサイト運営のために使用します。また、利用者が各コンペティションに参加した場合、利用者情報を当該コンペティションの主催者と共有します。利用者の許可無く、本サイト運営組織・コンペティション主催者以外の組織等に対して利用者情報を開示することはありません。" %}</li>
+                            <li>{% trans "利用者によってアップロードされたデータ（予測・モデル・分析結果等）や操作履歴等を、サービス向上・調査・学術研究等のために本サイト運営組織と当該コンペティション主催者が利用することがあります。" %}</li>
+                        </ul>
+                        <p><input type="checkbox" name="checkbox" id="checkbox" onclick="this.form.nmSubmit.disabled=this.checked?false:true;"/>{% trans "同意します" %}</p>
+                    <button name="nmSubmit" class='btn btn-outline-success btn-block' type="submit" disabled>{% trans "登録" %}</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

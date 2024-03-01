@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{%block main%}
+
+<!-----> 
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "コンペティション作成" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+<div class="container">
+    <ul>
+        {% trans "コンペティションの作成を行います。" %}<br>
+    </ul>
+              
+
+    <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-4"><label>{{form.title.label}}:</label></div>
+        <div class="col-8">{{form.title}}<br></div>
+    </div>
+    <div class="row">
+        <div class="col-4"><label>{{form.title_en.label}}:</label></div>
+        <div class="col-8">{{form.title_en}}<br></div>
+    </div>
+    <div class="row">
+        <div class="col-4"><label>{{form.owner.label}}:</label></div>
+        <div class="col-8">{{form.owner}}<br></div>
+    </div>
+    <div class="row">
+        <div class="col-4"><label>{{form.competition_abstract.label}}:</label></div>
+        <div class="col-8">{{form.competition_abstract}}<br></div>
+    </div>
+    <div class="row">
+        <div class="col-4"><label>{{form.competition_abstract_en.label}}:</label></div>
+        <div class="col-8">{{form.competition_abstract_en}}<br></div>
+    </div>
+    <div class="row">
+        <div class="col-4"><label>{{form.competition_description.label}}:</label></div>
+        <div class="col-8">{{form.competition_description}}<br></div>
+    </div>
+    <div class="row">
+        <div class="col-4"><label>{{form.competition_description_en.label}}:</label></div>
+        <div class="col-8">{{form.competition_description_en}}<br></div>
+    </div>
+    <div class="row">
+        <div class="col-6"><label>{{form.problem_type.label}}:</label>{{form.problem_type}}</div>
+        <div class="col-6"><label>{{form.evaluation_type.label}}:</label>{{form.evaluation_type}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6"><label>{{form.leaderboard_type.label}}:</label>{{form.leaderboard_type}}</div>
+        <div class="col-6"><label>{{form.displayed_decimal_places.label}}:</label>{{form.displayed_decimal_places}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6"><label>{{form.use_forum.label}}:</label>{{form.use_forum}}</div>
+        <div class="col-6"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6"><label>{{form.open_datetime.label}}:</label>{{form.open_datetime}}</div>
+        <div class="col-6"><label>{{form.close_datetime.label}}:</label>{{form.close_datetime}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6"><label>{{form.public.label}}:</label>{{form.public}}</div>
+        <div class="col-6"><label>{{form.invitation_only.label}}:</label>{{form.invitation_only}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6"><label>{{form.n_max_submissions_per_day.label}}:</label>{{form.n_max_submissions_per_day}}</div>
+        <div class="col-6"><label>{{form.public_leaderboard_percentage.label}}:</label>{{form.public_leaderboard_percentage}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-4"><label>{{form.blob_key.label}}:</label></div>
+        <div class="col-8">{{form.blob_key}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-4"><label>{{form.truth_blob_key.label}}:</label></div>
+        <div class="col-8">{{form.truth_blob_key}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-4"><label>{{form.file_description.label}}:</label></div>
+        <div class="col-8">{{form.file_description}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-4"><label>{{form.file_description_en.label}}:</label></div>
+        <div class="col-8">{{form.file_description_en}}</div>
+    </div>
+    <br>
+    <button type="submit">{% trans "作成" %}</button>
+    </form>
+</div>
+{% endblock %}

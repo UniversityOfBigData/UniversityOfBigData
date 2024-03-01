@@ -1,0 +1,15 @@
+diff --git a/log_viewer/views.py b/log_viewer/views.py
+index f3d75ed..ac3e074 100644
+--- a/log_viewer/views.py
++++ b/log_viewer/views.py
+@@ -67,9 +67,7 @@ class LogJsonView(JSONResponseMixin, TemplateView):
+                 with open(file_log, encoding="utf8", errors="ignore") as file:
+                     next_lines = list(
+                         islice(
+-                            readlines_reverse(
+-                                file, exclude=settings.LOG_VIEWER_EXCLUDE_TEXT_PATTERN
+-                            ),
++                            file.readlines()[::-1],
+                             (page - 1) * lines_per_page,
+                             page * lines_per_page,
+                         )

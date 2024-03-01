@@ -1,0 +1,12 @@
+{% extends "sub_base_limit.html" %}
+{% load i18n %}
+
+{%block main%}
+<div class="container">
+    <div class="error_content">
+        <h1>Server Error（500）</h1>
+        <p>Sorry something went wrong.</p>
+        <p><a href="/">{% trans "トップページに戻る" %}</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+
+{% block main %}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "参加承認" %}</h2>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="column">
+    <div class="container">
+        <div class="col-md-12">
+            <ul>
+                {% trans "参加申請者への参加承認または承認取消を行います。" %}
+            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-2">{% trans "nickname" %}</td>
+                            <td class="col-md-2">{% trans "username" %}</td>
+                            <td class="col-md-2">{% trans "email" %}</td>
+                            <td class="col-md-2">{% trans "学籍番号" %}</td>
+                            <td class="col-md-2">{% trans "参加認証" %}</td>
+                        </tr>
+                        {% for obj in user_box %}
+                        <tr>
+                            <td>{{obj.nickname}}</td>
+                            <td>{{obj.username}}</td>
+                            <td>{{obj.email}}</td>
+                            <td>{{obj.student_number}}</td>
+                            <td>
+                                {% if obj.is_participant  %}
+                                    <input type="radio" id={{obj.pk}} name={{obj.pk}} value="is_participant" checked>
+                                    {% trans "承認" %}
+                                    <input type="radio" id={{obj.pk}} name={{obj.pk}} value="not_participant">
+                                    {% trans "取消" %}
+                                {% else %}
+                                    <input type="radio" id={{obj.pk}} name={{obj.pk}} value="is_participant">
+                                    {% trans "承認" %}
+                                    <input type="radio" id={{obj.pk}} name={{obj.pk}} value="not_participant" checked>
+                                    {% trans "取消" %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <input type="submit" value={% trans "承認" %}>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link rel="icon" href="{% static 'images/mortarboard.svg' %}">
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% trans "ビッグデータ大学" %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% block extraheader %}{% endblock %}
+  </head>
+
+  <body>
+    {% include "main_nav.html" %}
+    {% include "competitions_base_image.html" %}
+    {% include "competitions_base_nav.html" %}
+    {% block main %}{% endblock %}
+    {% block main2 %}{% endblock %}
+    {% block main3 %}{% endblock %}
+
+    {% if user.is_authenticated %}
+      {% block userLog %}{% endblock %}
+    {% endif %}
+
+    {% include "competitions_base_footer.html" %}
+
+    <script type="text/javascript">
+    // http://jumk.de/nospam/stopspam.html
+    function UnCryptMailto( s )
+    {
+        var n = 0;
+        var r = "";
+        for( var i = 0; i < s.length; i++)
+        {
+            n = s.charCodeAt( i );
+            if( n >= 8364 )
+            {
+                n = 128;
+            }
+            r += String.fromCharCode( n - 1 );
+        }
+        return r;
+    }
+
+    function linkTo_UnCryptMailto( s )
+    {
+        location.href=UnCryptMailto( s );
+    }
+    </script>
+
+  </body>
+</html>

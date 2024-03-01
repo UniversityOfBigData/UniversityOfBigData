@@ -1,0 +1,83 @@
+{% load i18n %}
+<!-- ナビげーションメニュー-->
+<div id="header">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-expand navbar-light mt-3 mb-4">
+      <div class="row">
+        <div class="col-sm-5">
+          <a class="navbar-brand" href="/">
+            {% if LANGUAGE_CODE == "ja" %}
+              <img class="img-responsive" src="/static/images/bigdata.png">
+            {% elif LANGUAGE_CODE == "en" %}
+              <img class="img-responsive" src="/static/images/bigdata_en.png">
+            {% endif %}
+          </a>
+        </div>
+        <div class="col-sm-7">
+            <nav class="navbar navbar-nav navbar-right bg-light">
+              <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated and user.is_participant %}
+                <li class="nav-item">
+                    <a class="btn navbar-btn  navbar-right" type="button" href="{% url 'Competitions:competitions_list' %}" style="color:#ff4500;">{% trans "コンペ一覧" %}</a>
+                </li>
+                {% else %}
+                {% endif %}
+                <li class="nav-item">
+                    <a class="btn navbar-btn  mlm navbar-right" type="button" href="{% url 'participation_guide' %}" style="color:#ff4500;">{% trans "参加案内" %}</a>
+                </li>
+              </ul>
+
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!--言語選択-->
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                      <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="bi bi-translate"></span> <b class="caret"></b>
+                          </a>
+
+                          <form id="language-changer" action="{% url 'set_language' %}" method="post" style="display: none;">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ redirect_to }}" />
+                            <input name="language" type="hidden" value="" />
+                          </form>
+
+                          <script type="text/javascript">
+                              function postLanguageChanger(code)
+                              {
+                                  var form = document.getElementById('language-changer');
+                                  form.language.value = code;
+                                  form.submit();
+                              }
+                          </script>
+
+                          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><h6 class="dropdown-header">{% trans "言語選択" %}</h6></li>
+                              {% get_available_languages as LANGUAGES %}
+                              {% get_language_info_list for LANGUAGES as languages %}
+                              {% for language in languages %}
+                                  <li>
+                                      {% if language.code == LANGUAGE_CODE %}
+                                        <a class="dropdown-item"  href="#">
+                                          {{ language.name_local }}({{ language.code }}){% trans "<選択中>" %}
+                                        </a>
+                                      {% else %}
+                                          <a class="dropdown-item"  href="#" onclick="postLanguageChanger('{{ language.code }}'); return false;">
+                                              {{ language.name_local }}({{ language.code }})
+                                          </a>
+                                      {% endif %}
+                                  </li>
+                              {% endfor %}
+                          </ul>
+                        </li>
+                      </ul>
+                    </div><!--言語選択-->
+                </li>
+              </ul>
+            </nav>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

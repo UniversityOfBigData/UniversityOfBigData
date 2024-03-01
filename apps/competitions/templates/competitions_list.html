@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{%block main%}
+
+<!-----> 
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "コンペティションの一覧" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+<div class="container">
+    <ul>
+    {% trans "コンペティションの一覧です。" %}<br>
+    </ul>
+    <hr>
+</div>   
+{% if user.is_participant %}
+    <div class="container">
+        <ul>
+          <h3>{% trans "開催中" %}</h3>
+        </ul>   
+        <div class="col-md-12">
+            <table class="table table-bordered">
+            <tbody>         
+            {% for obj in active_object_box %}
+                <tr><td>
+                        <dl>
+                            <dt>
+                            {% if obj.is_allow_public or obj.public %}                
+                            <h5><a href="{% url 'Competitions:competitions_main' obj.id %}">{{obj.title}} </a></h5>
+                            {% else %}
+                            <h5>{{obj.title}}</h5>
+                            {% endif %}
+                            </dt>
+                            <dd>
+                            {% if obj.is_allow_public or obj.public %}
+                                {{ obj.competition_abstract | linebreaksbr}}
+                            {% else %}
+                                {% trans "詳細非公開" %}
+                            {% endif %}
+                            </dd>
+                        </dl>
+                        <p>
+                        <span class="label label-default" style="margin-right: 5px">
+                            {% if obj.public %}
+                                {% trans "公開コンペ" %}
+                            {% else %}
+                                {% trans "非公開コンペ" %}
+                            {% endif %}
+                        </span>
+                        <span class="label label-default" style="margin-right: 5px">
+                            {% if obj.invitation_only %}
+                                {% trans "参加者制限あり" %}
+                            {% else %}
+                                {% trans "参加者制限なし" %}
+                            {% endif %}
+                        </span>
+                        </p>
+                    </td>
+                    <td class="col-md-4">
+                        <ul>
+                            <li>
+                            {% trans "状態" %}：{{obj.status}}
+                            </li>
+                            <li>
+                            {% trans "開始日" %}：{{obj.open_datetime}}
+                            </li>
+                            <li>
+                            {% trans "終了日" %}：{{obj.close_datetime}}
+                            </li>
+                            <li>
+                            {% trans "参加者" %}：{{obj.user_count}}{% trans "人" %}
+                            </li>
+                            <li>
+                            {% trans "提出数" %}：{{obj.post_count}}{% trans "件" %}
+                            </li>
+                        </ul>
+                </td></tr>
+            {% endfor %} 
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <ul>
+          <h3>{% trans "開催準備中" %}</h3>
+        </ul>   
+        <div class="col-md-12">
+            <table class="table table-bordered">
+            <tbody>         
+            {% for obj in coming_object_box %}
+                <tr><td>
+                    <dl>
+                        <dt>
+                        {% if obj.is_allow_public or obj.public %}                
+                        <h5><a href="{% url 'Competitions:competitions_main' obj.id %}">{{ obj.title}} </a></h5>
+                        {% else %}
+                        <h5>{{ obj.title}}</h5>
+                        {% endif %}
+                        </dt>
+                        <dd>
+                        {% if obj.is_allow_public or obj.public %}
+                            {{ obj.competition_abstract | linebreaksbr}}
+                        {% else %}
+                            {% trans "詳細非公開" %}
+                        {% endif %}
+                        </dd>
+                    </dl>
+                        <p>
+                        <span class="label label-default" style="margin-right: 5px">
+                            {% if obj.public %}
+                                {% trans "公開コンペ" %}
+                            {% else %}
+                                {% trans "非公開コンペ" %}
+                            {% endif %}
+                        </span>
+                        <span class="label label-default" style="margin-right: 5px">
+                            {% if obj.invitation_only %}
+                                {% trans "参加者制限あり" %}
+                            {% else %}
+                                {% trans "参加者制限なし" %}
+                            {% endif %}
+                        </span>
+                        </p>
+                    </td>
+                    <td class="col-md-4">
+                        <ul>
+                            <li>
+                            {% trans "状態" %}：{{obj.status}}
+                            </li>
+                            <li>
+                            {% trans "開始日" %}：{{obj.open_datetime}}
+                            </li>
+                            <li>
+                            {% trans "終了日" %}：{{obj.close_datetime}}
+                            </li>
+                            <li>
+                            {% trans "参加者" %}：{{obj.user_count}}{% trans "人" %}
+                            </li>
+                            <li>
+                            {% trans "提出数" %}：{{obj.post_count}}{% trans "件" %}
+                            </li>
+                        </ul>
+                </td></tr>
+            {% endfor %} 
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul>
+          <h3>{% trans "開催終了" %}</h3>
+        </ul>   
+        <div class="col-md-12">
+            <table class="table table-bordered">
+            <tbody>         
+            {% for obj in completed_object_box %}
+                <tr><td>
+                    <dl>
+                        <dt>
+                        {% if obj.is_allow_public or obj.public %}                
+                        <h5><a href="{% url 'Competitions:competitions_main' obj.id %}">{{ obj.title}} </a></h5>
+                        {% else %}
+                        <h5>{{ obj.title}}</h5>
+                        {% endif %}
+                        </dt>
+                        <dd>
+                        {% if obj.is_allow_public or obj.public %}
+                            {{ obj.competition_abstract | linebreaksbr}}
+                        {% else %}
+                            {% trans "詳細非公開" %}
+                        {% endif %}
+                        </dd>
+                    </dl>
+                        <p>
+                        <span class="label label-default" style="margin-right: 5px">
+                            {% if obj.public %}
+                                {% trans "公開コンペ" %}
+                            {% else %}
+                                {% trans "非公開コンペ" %}
+                            {% endif %}
+                        </span>
+                        <span class="label label-default" style="margin-right: 5px">
+                            {% if obj.invitation_only %}
+                                {% trans "参加者制限あり" %}
+                            {% else %}
+                                {% trans "参加者制限なし" %}
+                            {% endif %}
+                        </span>
+                        </p>
+                    </td>
+                    <td class="col-md-4">
+                        <ul>
+                            <li>
+                            {% trans "状態" %}：{{obj.status}}
+                            </li>
+                            <li>
+                            {% trans "開始日" %}：{{obj.open_datetime}}
+                            </li>
+                            <li>
+                            {% trans "終了日" %}：{{obj.close_datetime}}
+                            </li>
+                            <li>
+                            {% trans "参加者" %}：{{obj.user_count}}{% trans "人" %}
+                            </li>
+                            <li>
+                            {% trans "提出数" %}：{{obj.post_count}}{% trans "件" %}
+                            </li>
+                        </ul>
+                </td></tr>
+            {% endfor %} 
+            </tbody>
+        </table>
+        </div>
+    </div>
+{% else %}
+    <div class="container">
+        <ul>
+            {% trans "登録認証後に利用できます。" %}
+        </ul>
+    </div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endif %}
+{% endblock %}

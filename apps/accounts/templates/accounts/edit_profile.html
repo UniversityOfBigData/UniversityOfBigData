@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block main %}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "プロフィール設定" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+<ul>
+    {% trans "プロフィール設定を行います。" %}<br>
+</ul>
+              
+<div class="container">
+    <div class="col-md-12">
+        <form action="{% url 'profileedit' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button class='btn btn-outline-success btn-block' type="submit">{% trans "保存" %}</button><button class='btn btn-outline-success btn-block' type="submit">{% trans "変更なし" %}</button>
+	</form>
+    </div>
+</div>
+
+
+{% endblock %}

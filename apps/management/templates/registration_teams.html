@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+
+{% block main %}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "所属チーム設定" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+
+
+<div class="column">
+    <div class="container">
+            <ul>
+                {% trans "ユーザの所属チームの設定を行います<br>" %}
+                {% trans "プルダウンからチームを選択し、チームの所属を変更するユーザにチェックをつけてください" %}
+            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <select id="main_dropdown" name="main_dropdown">
+                            {% for team in team_box %}
+                                <option value={{team.id}}>{{ team.name }}</option>
+                            {% endfor %}
+                            </select>
+                            <br>
+        
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td>{% trans "name" %}</td>
+                                        <td>{% trans "現在チーム" %}</td>
+                                    </tr>
+                                    {% for user in user_box %}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="user" name="user" value={{ user.username }} >
+                                            {{user.username}}
+                                        </td>
+                                        <td>
+                                            {{user.selectedTeam}}
+                                        </td>                              
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <input type="submit" value={% trans "更新" %}>
+                </div>
+            </form>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

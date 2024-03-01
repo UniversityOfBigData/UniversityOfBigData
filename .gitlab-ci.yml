@@ -1,0 +1,41 @@
+default:
+  before_script:
+    - docker info
+
+build_image:
+  stage: build
+  script:
+    - export VERSION=$CI_COMMIT_REF_NAME
+    - docker compose build
+
+test:
+  stage: test
+  script:
+    - docker run --entrypoint=''
+      -e DJANGO_SECRET_KEY='django-insecure-test-secret-key' 
+      -e SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='google-oauth2-test-key' 
+      -e SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='google-oauth2-test-secret'
+      universityofbigdata/universityofbigdata:$CI_COMMIT_REF_NAME bash -c
+      "cp static/lib/user_defined_example.py static/lib/user_difined.py;python manage.py test;python manage.py test apps"
+
+syntastic_check:
+  stage: test
+  script:
+    - docker run --entrypoint=''
+      universityofbigdata/universityofbigdata:$CI_COMMIT_REF_NAME bash -c "flake8 --count --statistics --tee --output-file flake8.log || true; grep flake8.log -e 'F821' -e 'F822' -e 'F823' && exit 1 || exit 0"
+
+deploy:
+  stage: deploy
+  script:
+    - export VERSION=$CI_COMMIT_REF_NAME
+    - export DEBUG=true
+    - docker compose down
+    - echo "DJANGO_SECRET_KEY=django-insecure-test-secret-key" > .env
+    - echo "DJANGO_SUPERUSER_PASSWORD=admin" >> .env
+    - echo "DJANGO_SUPERUSER_USERNAME=admin" >> .env
+    - echo "DJANGO_SUPERUSER_EMAIL=admin@example.com" >> .env
+    - rm -rf ./data
+    - mkdir -p ./data/static ./data/media ./data/log/nginx ./data/log/apps
+    - PORT=8000 docker-compose up -d
+  only:
+    - main

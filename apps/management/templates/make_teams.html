@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+
+{% block main %}
+<div class="column_top" style="background-color:#143174;">
+    <div class="container">
+        <div class="col-md-12 text-left">
+            <span style="color:#ffffff;">
+            <h2>{% trans "チーム作成" %}</h2>
+            </span>
+        </div> 
+    </div>
+</div>
+
+<div class="column">
+    <div class="container">
+            <ul>
+                {% trans "チームの作成および管理を行います" %}
+            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="table-responsive">
+                    <tr>
+                        {{form}}
+                    </tr>
+                </div>
+                <input type="submit" value={% trans "作成" %}>
+            </form>                    
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>{% trans "チーム名" %}</td>
+                        <td>{% trans "メンバー" %}</td>
+                    </tr>
+                    {% for team, member_data in team_box.items %}
+                    <tr>
+                        <td>{{team}}</td>
+                        <td>{{member_data}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</div>
+
+{% endblock %}
